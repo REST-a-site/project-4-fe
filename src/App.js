@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      For Dev Commit
+      Now I will scaffold
     </div>
   );
 }
