@@ -74,4 +74,7 @@ Jake (PM), Sam, JT
 - As an admin user, I need to be able to log into an admin dashboard to update our menu/hours or post/remove menu items, so I can reflect the seasonal changes of the restaurant.
 ### Wireframes
 
-- To come...
+- Landing Page and below the fold.
+![img012](https://user-images.githubusercontent.com/68978118/101722893-60349280-3a68-11eb-8603-0536a889c664.jpg)
+- Menu Management
+![img014](https://user-images.githubusercontent.com/68978118/101722849-514de000-3a68-11eb-82a9-02d4c360beb2.jpg)
