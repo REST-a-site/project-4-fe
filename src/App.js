@@ -4,6 +4,9 @@ import Navigation from "./components/Navigation/Navigation";
 import styled from "styled-components";
 import Hero from './components/Hero/Hero';
 import About from './components/About/About'
+import Reservation from "./components/Reservation/Reservation";
+import Team from "./components/Team/Team"
+import Contact from "./components/Contact/Contact"
 
 const Container = styled.div`
 	background-color: grey;
@@ -16,6 +19,9 @@ const App = () => {
 			<Navigation />
 			<Home />
             <About />
+            <Team />
+            <Reservation />
+            <Contact />
 		</Container>
 	);
 };
