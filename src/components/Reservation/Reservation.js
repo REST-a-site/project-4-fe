@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
-const Container = styled.div`
-	font-size: 15px;
-`;
+import { Container } from "../styles";
 
 const Reservation = () => {
 	return <Container>Make Reservations here.</Container>;

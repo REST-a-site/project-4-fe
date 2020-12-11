@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
-const Container = styled.div`
-	font-size: 50px;
-`;
+import { Container } from "../styles";
 
 const Home = () => {
 	return <Container>Hello from Home.js!</Container>;
