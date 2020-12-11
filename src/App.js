@@ -7,7 +7,7 @@ import About from "./components/About/About";
 import Reservation from "./components/Reservation/Reservation";
 import Team from "./components/Team/Team";
 import Contact from "./components/Contact/Contact";
-import { Container } from "./components/styles";
+import { Container } from "./components/Styles/index";
 
 const App = () => {
 	return (
