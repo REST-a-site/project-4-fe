@@ -1,9 +1,5 @@
 import styled, { keyframes, createGlobalStyle } from "styled-components";
 
-export const Container = styled.div`
-	font-size: 20px;
-`;
-
 export const FadeIn = keyframes`
 0% {
 	opacity: 0;
