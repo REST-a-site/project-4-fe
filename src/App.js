@@ -19,6 +19,12 @@ const Content = styled.div`
 	background-color: grey;
 `;
 
+const Footer = styled.footer`
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+`;
+
 const App = () => {
 	return (
 		<Fragment>
@@ -32,6 +38,9 @@ const App = () => {
 				<Reservation />
 				<Contact />
 			</Content>
+			<Footer>
+				Developed by <a href='https://github.com/921steak'>921steak</a>.
+			</Footer>
 		</Fragment>
 	);
 };

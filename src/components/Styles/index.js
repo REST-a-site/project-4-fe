@@ -15,6 +15,7 @@ export const FadeIn = keyframes`
 `;
 
 export const LazyLoader = styled.h4`
+	display: flex;
 	font-size: 30px;
 	align-items: center;
 	justify-content: center;
@@ -22,10 +23,15 @@ export const LazyLoader = styled.h4`
 `;
 
 export const GlobalStyle = createGlobalStyle`
+	a {
+		text-decoration: none;
+	}
 	body, html {
 		height: 100%;
+		scroll-behavior: smooth;
 	}
 	body {
 		font-family: Sans-Serif;
+		font-size: 18px;
 	}
 `
