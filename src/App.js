@@ -30,13 +30,9 @@ const App = () => {
 		<Fragment>
 			<GlobalStyle />
 			<Content>
-				<Hero />
 				<Navigation />
 				<Home />
-				<About />
-				<Team />
-				<Reservation />
-				<Contact />
+				
 			</Content>
 			<Footer>
 				Developed by <a href='https://github.com/921steak'>921steak</a>.
