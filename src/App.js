@@ -2,11 +2,6 @@ import React, { Fragment } from "react";
 import Home from "./components/Home/Home";
 import Navigation from "./components/Navigation/Navigation";
 import styled from "styled-components";
-import Hero from "./components/Hero/Hero";
-import About from "./components/About/About";
-import Reservation from "./components/Reservation/Reservation";
-import Team from "./components/Team/Team";
-import Contact from "./components/Contact/Contact";
 import { GlobalStyle } from "./components/Styles/index";
 
 const Content = styled.div`
@@ -30,17 +25,13 @@ const App = () => {
 		<Fragment>
 			<GlobalStyle />
 			<Content>
-				<Hero />
 				<Navigation />
 				<Home />
-				<About />
-				<Team />
-				<Reservation />
-				<Contact />
+				{/* PrivateEvents, Menu, Admin pages will go here */}
+				<Footer>
+					Developed by <a href='https://github.com/921steak'>921steak</a>.
+				</Footer>
 			</Content>
-			<Footer>
-				Developed by <a href='https://github.com/921steak'>921steak</a>.
-			</Footer>
 		</Fragment>
 	);
 };

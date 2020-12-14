@@ -33,5 +33,7 @@ export const GlobalStyle = createGlobalStyle`
 	body {
 		font-family: Sans-Serif;
 		font-size: 18px;
+		padding: 0;
+		margin: 0;
 	}
 `

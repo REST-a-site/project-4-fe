@@ -12,15 +12,14 @@ const HeroContainer = styled.div`
 	overflow: hidden;
 	object-fit: cover;
 	background-attachment: fixed;
-`;
-
-const HeroImage = styled.img`
 	background-position: center;
 	background-repeat: no-repeat;
-    background-size: cover;
-    @media (min-width: 900px) {
-        height: 400px;
-    }
+	background-size: cover;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url('${background}');
+	@media (min-width: 900px) {
+		height: 400px;
+	}
 `;
 
 const HeroTitle = styled.h1`
@@ -42,7 +41,6 @@ const Hero = () => {
 
 	useEffect(() => {
 		let randomImage = images[Math.floor(Math.random() * 3)];
-		console.log(randomImage);
 		setBackground(randomImage);
 	}, []);
 
@@ -50,7 +48,6 @@ const Hero = () => {
 
 	return (
 		<HeroContainer>
-			<HeroImage src={background}></HeroImage>
 			<HeroTitle>921steak</HeroTitle>
 			<HeroP>best in the game</HeroP>
 		</HeroContainer>
