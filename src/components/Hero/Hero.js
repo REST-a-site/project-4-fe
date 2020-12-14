@@ -20,7 +20,7 @@ const HeroContainer = styled.div`
 		background &&
 		css`
 			background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-				url("${({background}) => background}");
+				url("${({ background }) => background}");
 		`}
 
 	@media (min-width: 900px) {
@@ -29,11 +29,18 @@ const HeroContainer = styled.div`
 `;
 
 const HeroTitle = styled.h1`
+    margin-top: 20%;
+	color: white;
 	animation: 2s ${FadeIn} ease-in;
-	font-size: 72px;
+    font-size: 72px;
+    
+    @media (min-width: 900px) {
+        font-size: 10px;
+    }
 `;
 
 const HeroP = styled.p`
+	color: white;
 	animation: 4s ${FadeIn} ease-in;
 	font-size: 24px;
 	@media (min-width: 900px) {
