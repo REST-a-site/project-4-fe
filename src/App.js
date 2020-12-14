@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Home from "./components/Home/Home";
 import Menu from "./components/Menu/Menu";
 import PrivateEvents from "./components/PrivateEvents/PrivateEvents";
@@ -62,7 +62,7 @@ const NavListItem = styled.li`
 
 const App = () => {
 	return (
-		<Fragment>
+		<>
 			<GlobalStyle />
 			<Content>
 				<Router>
@@ -109,7 +109,7 @@ const App = () => {
 					.
 				</Footer>
 			</Content>
-		</Fragment>
+		</>
 	);
 };
 

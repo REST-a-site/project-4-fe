@@ -62,7 +62,7 @@ const Hero = () => {
 	return (
 		<Container background={background}>
 			<Title>921steak</Title>
-			<Paragraph>best in the game</Paragraph>
+			<Paragraph>best steak in the game</Paragraph>
 		</Container>
 	);
 };
