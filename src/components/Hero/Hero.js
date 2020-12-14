@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import { FadeIn, LazyLoader } from "../Styles/index";
-import interior1 from "../media/images/interior1.jpg";
-import interior2 from "../media/images/interior2.jpg";
-import interior3 from "../media/images/interior3.jpg";
+import interior5 from "../media/images/interior5.jpg";
+import interior6 from "../media/images/interior6.jpg";
+import interior7 from "../media/images/interior7.jpg";
 
-const HeroContainer = styled.div`
+const Container = styled.div`
 	position: relative;
 	height: 100vh;
 	margin: 0;
@@ -28,7 +28,7 @@ const HeroContainer = styled.div`
 	}
 `;
 
-const HeroTitle = styled.h1`
+const Title = styled.h1`
     margin-top: 20%;
 	color: white;
 	animation: 2s ${FadeIn} ease-in;
@@ -39,7 +39,7 @@ const HeroTitle = styled.h1`
     }
 `;
 
-const HeroP = styled.p`
+const Paragraph = styled.p`
 	color: white;
 	animation: 4s ${FadeIn} ease-in;
 	font-size: 24px;
@@ -50,7 +50,7 @@ const HeroP = styled.p`
 
 const Hero = () => {
 	const [background, setBackground] = useState();
-	const images = [interior1, interior2, interior3];
+	const images = [interior5, interior6, interior7];
 
 	useEffect(() => {
 		let randomImage = images[Math.floor(Math.random() * 3)];
@@ -60,10 +60,10 @@ const Hero = () => {
 	if (!background) return <LazyLoader>Loading...</LazyLoader>;
 
 	return (
-		<HeroContainer background={background}>
-			<HeroTitle>921steak</HeroTitle>
-			<HeroP>best in the game</HeroP>
-		</HeroContainer>
+		<Container background={background}>
+			<Title>921steak</Title>
+			<Paragraph>best in the game</Paragraph>
+		</Container>
 	);
 };
 

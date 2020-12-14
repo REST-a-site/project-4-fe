@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import Home from "./components/Home/Home";
-import Menu from './components/Menu/Menu'
-import PrivateEvents from './components/PrivateEvents/PrivateEvents'
+import Menu from "./components/Menu/Menu";
+import PrivateEvents from "./components/PrivateEvents/PrivateEvents";
 import styled, { css } from "styled-components";
 import { GlobalStyle } from "./components/Styles/index";
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
-import logo from './components/media/images/temporaryLogo.png'
+import logo from "./components/media/images/temporaryLogo.png";
 
 const Content = styled.div`
 	display: flex;
@@ -31,26 +31,22 @@ const Logo = styled.img`
 
 const Nav = styled.nav`
 	overflow: hidden;
-`
-
-const NavListItem = styled.li`
-	list-style-type: none;
 `;
 
 const NavContainer = styled.div`
-	overflow: hidden;
-	onscroll=${{
-		myFunction() {
-			let sticky = NavContainer.offsetTop;
-			if (window.pageYOffset >= sticky) {
-				css`
-					position: fixed;
-					top: 0;
-					width: 100%;
-				`;
-			}
-		},
-	}}
+overflow: hidden;
+onscroll=${{
+	myFunction() {
+		let sticky = NavContainer.offsetTop;
+		if (window.pageYOffset >= sticky) {
+			css`
+				position: fixed;
+				top: 0;
+				width: 100%;
+			`;
+		}
+	},
+}}
 
 `;
 
@@ -58,6 +54,10 @@ const NavDiv = styled.div`
 	float: right;
 	margin: 1.5%;
 	text-align: center;
+`;
+
+const NavListItem = styled.li`
+	list-style-type: none;
 `;
 
 const App = () => {
@@ -101,9 +101,6 @@ const App = () => {
 						</Route>
 					</Switch>
 				</Router>
-				{/* <Navigation /> */}
-				{/* <Home /> */}
-				{/* PrivateEvents, Menu, Admin pages will go here */}
 				<Footer>
 					Developed by{" "}
 					<a href='https://github.com/orgs/REST-a-site/people' target='_blank'>
