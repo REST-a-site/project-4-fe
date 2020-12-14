@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import Home from "./components/Home/Home";
 import Menu from './components/Menu/Menu'
 import PrivateEvents from './components/PrivateEvents/PrivateEvents'
-// import Navigation from "./components/Navigation/Navigation";
 import styled, { css } from "styled-components";
 import { GlobalStyle } from "./components/Styles/index";
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
