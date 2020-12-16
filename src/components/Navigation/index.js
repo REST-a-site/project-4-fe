@@ -112,15 +112,15 @@ const LogInButton = styled.nav`
 	align-items: center;
 	display: flex;
 
-	@media screen and (max-width: 768px) {
+	@media screen and (max-width: 780px) {
 		display: none;
 	}
 `;
 
 const LogInLink = styled(LinkRouter)`
 	background: #9b9388;
-	border-radius: 50px;
-	border: none;
+	border-radius: 0px;
+	border: 2.5px solid;
 	color: #d9d5b6;
 	cursor: pointer;
 	font-size: 16px;
