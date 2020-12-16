@@ -63,10 +63,11 @@ const Contact = () => {
 			<Wrapper>
 				<Row imgPosition={true}>
 					<ColumnOne>
+                    <h1>Contact Me Form Here</h1>
 					</ColumnOne>
 					<ColumnTwo>
 						<ImgContainer>
-							<Img src={require("../../images/food4.jpg").default} alt='food' />
+							<Img src={require("../../images/food3.jpg").default} alt='food' />
 						</ImgContainer>
 					</ColumnTwo>
 				</Row>
