@@ -2,50 +2,144 @@ import React from "react";
 import { Button } from "../Styles";
 import styled from "styled-components";
 
-const Container = styled.div``;
+const Container = styled.div`
+	background: ${({ lightBg }) => (lightBg ? "#9b9388" : "#1f262E")};
+	color: #d9d5b6;
 
-const Wrapper = styled.div``;
+	@media screen and (max-width: 780px) {
+		padding: 100px 0;
+	}
+`;
 
-const Row = styled.div``;
+const Wrapper = styled.div`
+	display: grid;
+	height: 860px;
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1100px;
+	padding: 0 24px;
+	width: 100%;
+	z-index: 1;
+`;
 
-const ColumnOne = styled.div``;
+const Row = styled.div`
+	align-items: center;
+	display: grid;
+	grid-auto-columns: minmax(auto, 1fr);
+	grid-template-areas: ${({ imgStart }) =>
+		imgStart ? `'col2 col1'` : `'col1 col2'`};
 
-const ColumnTwo = styled.div``;
+	@media screen and (max-width: 780px) {
+		grid-template-areas: ${({ imgStart }) =>
+			imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
+	}
+`;
 
-const Content = styled.div``;
+const ColumnOne = styled.div`
+	grid-area: col1;
+	margin-bottom: 15px;
+	padding: 0 15px;
+`;
 
-const BigP = styled.p``;
+const ColumnTwo = styled.div`
+	grid-area: col2;
+	margin-bottom: 15px;
+	padding: 0 15px;
+`;
 
-const LittleP = styled.p``;
+const Content = styled.div`
+	max-width: 540px;
+	padding-bottom: 60px;
+	padding-top: 0;
+`;
 
-const H1 = styled.h1``;
+const BigP = styled.p`
+	color: #9b9388;
+	font-size: 16px;
+	font-weight: 700;
+	letter-spacing: 1.4px;
+	line-height: 16px;
+	margin-bottom: 16px;
+	text-transform: uppercase;
+`;
 
-const ButtonContainer = styled.div``;
+const LittleP = styled.p`
+	color: ${({ darkText }) => (darkText ? "#3b3517" : "#d9d5b6")};
+	font-size: 18px;
+	line-height: 24px;
+	margin-bottom: 35px;
+	max-width: 440px;
+`;
 
-const ImgContainer = styled.div``;
+const H1 = styled.h1`
+	color: ${({ lightText }) => (lightText ? "#9b9388" : "#3b3517")};
+	font-size: 48px;
+	font-weight: 600;
+	line-height: 1.1;
+	margin-bottom: 24px;
 
-const Img = styled.img``;
+	@media screen and (max-width: 480px) {
+		font-size: 32px;
+	}
+`;
 
-const Info = () => {
+const ButtonContainer = styled.div`
+	display: flex;
+	justify-content: flex-start;
+`;
+
+const ImgContainer = styled.div`
+	height: 100%;
+	max-width: 555px;
+`;
+
+const Img = styled.img`
+	margin: 0 0 10px 0;
+	padding-right: 0;
+	width: 100%;
+`;
+
+const Info = ({
+	id,
+	lightBg,
+	lightText,
+	lighTextDesc,
+	topLine,
+	headline,
+	description,
+	buttonLabel,
+	imgStart,
+	img,
+	alt,
+	dark,
+	primary,
+	darkText,
+}) => {
 	return (
-		<Container>
+		<Container lightBg={lightBg} id={id}>
 			<Wrapper>
-				<Row>
+				<Row imgStart={imgStart}>
 					<ColumnOne>
 						<Content>
-							<BigP>Want to know more...</BigP>
-							<H1>...About the Restaurant</H1>
-							<LittleP>
-								Then read this little paragraph right here for the information about the restaurant that was told to you would be here!
-							</LittleP>
+							<BigP>{topLine}</BigP>
+							<H1 lightText={lightText}>{headline}</H1>
+							<LittleP darkText={darkText}>{description}</LittleP>
 							<ButtonContainer>
-								<Button to='home' offset={-80} />
+								<Button
+									to='home'
+									offset={-80}
+									exact='true'
+									primary={primary ? 1 : 0}
+									dark={dark ? 1 : 0}>
+									{buttonLabel}
+								</Button>
 							</ButtonContainer>
 						</Content>
 					</ColumnOne>
 					<ColumnTwo>
 						<ImgContainer>
-							<Img />
+							<Img src={img} alt={alt} />
 						</ImgContainer>
 					</ColumnTwo>
 				</Row>
