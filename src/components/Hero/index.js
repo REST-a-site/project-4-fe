@@ -116,7 +116,7 @@ const Hero = () => {
 						to='reserve'
 						primary={true}
 						exact='true'
-						dark='true'
+						dark={true}
 						onMouseEnter={onHover}
 						onMouseLeave={onHover}>
 						Make Reservations
