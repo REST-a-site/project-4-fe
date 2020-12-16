@@ -3,7 +3,7 @@ import { Button } from "../Styles";
 import styled from "styled-components";
 
 const Container = styled.div`
-	background: ${({ lightBg }) => (lightBg ? "#9b9388" : "#1f262E")};
+	background: ${({ altBg }) => (altBg ? "#9b9388" : "#1f262E")};
 	color: #d9d5b6;
 
 	@media screen and (max-width: 780px) {
@@ -27,12 +27,12 @@ const Row = styled.div`
 	align-items: center;
 	display: grid;
 	grid-auto-columns: minmax(auto, 1fr);
-	grid-template-areas: ${({ imgStart }) =>
-		imgStart ? `'col2 col1'` : `'col1 col2'`};
+	grid-template-areas: ${({ imgPosition }) =>
+		imgPosition ? `'col2 col1'` : `'col1 col2'`};
 
 	@media screen and (max-width: 780px) {
-		grid-template-areas: ${({ imgStart }) =>
-			imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
+		grid-template-areas: ${({ imgPosition }) =>
+			imgPosition ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
 	}
 `;
 
@@ -54,7 +54,7 @@ const Content = styled.div`
 	padding-top: 0;
 `;
 
-const BigP = styled.p`
+const Intro = styled.p`
 	color: #9b9388;
 	font-size: 16px;
 	font-weight: 700;
@@ -64,8 +64,8 @@ const BigP = styled.p`
 	text-transform: uppercase;
 `;
 
-const LittleP = styled.p`
-	color: ${({ darkText }) => (darkText ? "#3b3517" : "#d9d5b6")};
+const Description = styled.p`
+	color: ${({ altText }) => (altText ? "#3b3517" : "#d9d5b6")};
 	font-size: 18px;
 	line-height: 24px;
 	margin-bottom: 35px;
@@ -73,7 +73,7 @@ const LittleP = styled.p`
 `;
 
 const H1 = styled.h1`
-	color: ${({ lightText }) => (lightText ? "#9b9388" : "#3b3517")};
+	color: ${({ altTwoText }) => (altTwoText ? "#9b9388" : "#3b3517")};
 	font-size: 48px;
 	font-weight: 600;
 	line-height: 1.1;
@@ -102,29 +102,32 @@ const Img = styled.img`
 
 const Info = ({
 	id,
-	lightBg,
-	lightText,
-	lighTextDesc,
-	topLine,
-	headline,
+	altBg,
+	altTwoText,
+    altTextDescription,
+    double,
+	h1,
+	intro,
 	description,
 	buttonLabel,
-	imgStart,
+	imgPosition,
 	img,
 	alt,
 	dark,
 	primary,
-	darkText,
+	altText,
 }) => {
 	return (
-		<Container lightBg={lightBg} id={id}>
+		<Container altBg={altBg} id={id}>
 			<Wrapper>
-				<Row imgStart={imgStart}>
+				<Row imgPosition={imgPosition}>
 					<ColumnOne>
 						<Content>
-							<BigP>{topLine}</BigP>
-							<H1 lightText={lightText}>{headline}</H1>
-							<LittleP darkText={darkText}>{description}</LittleP>
+							<Intro altText={altText}>{intro}</Intro>
+							<H1 altTwoText={altTwoText}>{h1}</H1>
+							<Description altTextDescription={altTextDescription}>
+								{description}
+							</Description>
 							<ButtonContainer>
 								<Button
 									to='home'
@@ -144,6 +147,26 @@ const Info = ({
 					</ColumnTwo>
 				</Row>
 			</Wrapper>
+
+        {(double) ? <Wrapper>
+				<Row imgPosition={!imgPosition}>
+					<ColumnOne>
+						<Content>
+							<Intro altText={altText}>{intro}</Intro>
+							<H1 altTwoText={altTwoText}>{h1}</H1>
+							<Description altTextDescription={altTextDescription}>
+								{description}
+							</Description>
+						</Content>
+					</ColumnOne>
+					<ColumnTwo>
+						<ImgContainer>
+							<Img src={img} alt={alt} />
+						</ImgContainer>
+					</ColumnTwo>
+				</Row>
+			</Wrapper> : null}
+
 		</Container>
 	);
 };
