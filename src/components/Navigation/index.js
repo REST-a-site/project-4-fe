@@ -3,6 +3,7 @@ import { FaBars } from "react-icons/fa";
 import styled from "styled-components";
 import { Link as LinkRouter } from "react-router-dom";
 import { Link as LinkScroll } from "react-scroll";
+import { IconContext } from "react-icons/lib";
 
 const NavWrapper = styled.nav`
 	align-items: center;
@@ -135,7 +136,7 @@ const LogInLink = styled(LinkRouter)`
 	}
 `;
 
-const Nav = () => {
+const Nav = ({ toggle }) => {
 	const [scroll, setScroll] = useState(false);
 
 	const changeScroll = () => {
@@ -148,57 +149,61 @@ const Nav = () => {
 
 	useEffect(() => {
 		window.addEventListener("scroll", changeScroll);
-    }, []);
-    
-    const scrollHome = () => {
-        scroll.scrollToTop()
-    }
+	}, []);
+
+	const scrollHome = () => {
+		scroll.scrollToTop();
+	};
 
 	return (
-		<NavWrapper scroll={scroll}>
-			<Container>
-				<Logo to='/' onClick={scrollHome}>921</Logo>
-				<BurgerButton>
-					<FaBars />
-				</BurgerButton>
-				<BurgerMenu>
-					<BurgerItem>
-						<BurgerRouter to='/'>Home</BurgerRouter>
-					</BurgerItem>
-					<BurgerItem>
-						<BurgerRouter to='/menu'>Menu</BurgerRouter>
-					</BurgerItem>
-					<BurgerItem>
-						<BurgerRouter to='/events'>Private Events</BurgerRouter>
-					</BurgerItem>
-					<BurgerItem>
-						<BurgerLink to='reservations' exact='true'>
-							Reservations
-						</BurgerLink>
-					</BurgerItem>
-					<BurgerItem>
-						<BurgerLink to='about' exact='true'>
-							About
-						</BurgerLink>
-					</BurgerItem>
-					<BurgerItem>
-						<BurgerLink to='contact' exact='true'>
-							Contact
-						</BurgerLink>
-					</BurgerItem>
-					<BurgerItem>
-						<BurgerLink to='team' exact='true'>
-							Team
-						</BurgerLink>
-					</BurgerItem>
-				</BurgerMenu>
-				<LogInButton>
-					<LogInLink to='/login' exact='true'>
-						LogIn
-					</LogInLink>
-				</LogInButton>
-			</Container>
-		</NavWrapper>
+		<IconContext.Provider value={{ color: "#d9d5b6" }}>
+			<NavWrapper scroll={scroll}>
+				<Container>
+					<Logo to='/' onClick={scrollHome}>
+						921
+					</Logo>
+					<BurgerButton onClick={toggle}>
+						<FaBars />
+					</BurgerButton>
+					<BurgerMenu>
+						<BurgerItem>
+							<BurgerRouter to='/'>Home</BurgerRouter>
+						</BurgerItem>
+						<BurgerItem>
+							<BurgerRouter to='/menu'>Menu</BurgerRouter>
+						</BurgerItem>
+						<BurgerItem>
+							<BurgerRouter to='/events'>Private Events</BurgerRouter>
+						</BurgerItem>
+						<BurgerItem>
+							<BurgerLink to='reservations' exact='true'>
+								Reservations
+							</BurgerLink>
+						</BurgerItem>
+						<BurgerItem>
+							<BurgerLink to='about' exact='true'>
+								About
+							</BurgerLink>
+						</BurgerItem>
+						<BurgerItem>
+							<BurgerLink to='contact' exact='true'>
+								Contact
+							</BurgerLink>
+						</BurgerItem>
+						<BurgerItem>
+							<BurgerLink to='team' exact='true'>
+								Team
+							</BurgerLink>
+						</BurgerItem>
+					</BurgerMenu>
+					<LogInButton>
+						<LogInLink to='/login' exact='true'>
+							LogIn
+						</LogInLink>
+					</LogInButton>
+				</Container>
+			</NavWrapper>
+		</IconContext.Provider>
 	);
 };
 
