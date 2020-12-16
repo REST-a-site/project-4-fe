@@ -1,14 +1,7 @@
 
-import styled, { css } from "styled-components";
-import { FadeIn, LazyLoader } from "../Styles/index";
-import interior5 from "../media/images/interior5.jpg";
-import interior6 from "../media/images/interior6.jpg";
-import interior7 from "../media/images/interior7.jpg";
 
 const Container = styled.div`
-	position: relative;
 	height: 100vh;
-	margin: 0;
 	overflow: hidden;
 	object-fit: cover;
 	background-attachment: fixed;

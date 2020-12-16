@@ -1,15 +1,15 @@
-import styled, { keyframes, createGlobalStyle } from "styled-components";
-import { Link } from 'react-scroll'
+import styled, { keyframes } from "styled-components";
+import { Link } from "react-scroll";
 
 // button from https://www.youtube.com/watch?v=Nl54MJDR2p8&amp%3Bt=12846s&ab_channel=BrianDesign
 
 export const Button = styled(Link)`
 	border-radius: 50px;
-	background: ${({ primary }) => (primary ? "#01BF71" : "#010606")};
+	background: ${({ primary }) => (primary ? "#3b3517" : "#9b9388")};
 	white-space: nowrap;
 	padding: ${({ big }) => (big ? "14px 48px" : "12px 30px")};
-	color: ${({ dark }) => (dark ? "#010606" : "#fff")};
-	font-size: ${({ fontBig }) => (fontBig ? "20px" : "16px")};
+	color: ${({ dark }) => (dark ? "#9b9388" : "#D9D5B6")};
+	font-size: ${({ fontBig }) => (fontBig ? "24px" : "20px")};
 	outline: none;
 	border: none;
 	cursor: pointer;
@@ -20,7 +20,8 @@ export const Button = styled(Link)`
 
 	&:hover {
 		transition: all 0.2s ease-in-out;
-		background: ${({ primary }) => (primary ? "#fff" : "#01BF71")};
+		background: ${({ primary }) => (primary ? "#9b9388" : "#3b3517")};
+		/* color: ${({ dark }) => (dark ? "#D9D5B6" : "3B3517")}; not working */
 	}
 `;
 
@@ -34,26 +35,4 @@ export const FadeIn = keyframes`
 }
 `;
 
-export const LazyLoader = styled.h4`
-	display: flex;
-	font-size: 30px;
-	align-items: center;
-	justify-content: center;
-	flex-direction: row;
-`;
 
-export const GlobalStyle = createGlobalStyle`
-	a {
-		text-decoration: none;
-	}
-	body, html {
-		height: 100%;
-		scroll-behavior: smooth;
-	}
-	body {
-		font-family: Sans-Serif;
-		font-size: 18px;
-		padding: 0;
-		margin: 0;
-	}
-`
