@@ -4,13 +4,13 @@ import { Link } from "react-scroll";
 // button from https://www.youtube.com/watch?v=Nl54MJDR2p8&amp%3Bt=12846s&ab_channel=BrianDesign
 
 export const Button = styled(Link)`
-	border-radius: 50px;
-	background: ${({ primary }) => (primary ? "#3b3517" : "#9b9388")};
+	border-radius: 0px;
+	background: ${({ primary }) => (primary ? "#181A1B" : "#3B3517")};
 	white-space: nowrap;
-	padding: ${({ big }) => (big ? "14px 48px" : "12px 30px")};
-	color: ${({ dark }) => (dark ? "#9b9388" : "#D9D5B6")};
-	font-size: ${({ fontBig }) => (fontBig ? "24px" : "20px")};
-	outline: none;
+	padding: ${({ big }) => (big ? "16px 50px" : "14px 32px")};
+	color: ${({ dark }) => (dark ? "#D9D5B6" : "#D9D5B6")};
+	font-size: ${({ fontBig }) => (fontBig ? "28x" : "22px")};
+	outline: 5px solid #181A1B;
 	border: none;
 	cursor: pointer;
 	display: flex;
@@ -20,8 +20,8 @@ export const Button = styled(Link)`
 
 	&:hover {
 		transition: all 0.2s ease-in-out;
-		background: ${({ primary }) => (primary ? "#9b9388" : "#3b3517")};
-		/* color: ${({ dark }) => (dark ? "#D9D5B6" : "3B3517")}; not working */
+		background: ${({ primary }) => (primary ? "#D9D5B6" : "#D9D5B6")};
+		color: ${({ dark }) => (dark ? "#181A1B" : "#3B3517")}; not working
 	}
 `;
 
@@ -34,5 +34,3 @@ export const FadeIn = keyframes`
 	opacity: 1;
 }
 `;
-
-

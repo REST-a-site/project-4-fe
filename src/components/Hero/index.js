@@ -1,18 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import Video from "../../videos/video.mp4";
 import styled from "styled-components";
 import { Button } from "../Styles";
 
 const Container = styled.div`
 	align-items: center;
-	background: #eeece3;
+	background: #181a1b;
 	display: flex;
 	height: 800px;
 	justify-content: center;
-	padding: 0 30px;
+	padding: 0 28px;
 	position: relative;
 	z-index: 1;
-    
+
+	// :before styling from https://www.youtube.com/watch?v=Nl54MJDR2p8&amp%3Bt=12846s&ab_channel=BrianDesign
+
+	:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(
+				180deg,
+				rgba(0, 0, 0, 0.2) 0%,
+				rgba(0, 0, 0, 0.6) 100%
+			),
+			linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
+		z-index: 2;
+	}
 `;
 
 const Background = styled.div`
@@ -31,7 +48,7 @@ const VideoImport = styled.video`
 	height: 100%;
 	object-fit: cover;
 	width: 100%;
-    background: #eeece3;
+    background: #181A1B;
 `;
 
 const Content = styled.div`
@@ -45,7 +62,7 @@ const Content = styled.div`
 `;
 
 const H1 = styled.h1`
-	color: #eeece3;
+	color: #D9D5B6;
 	font-size: 72px;
 	text-align: center;
 
@@ -59,7 +76,7 @@ const H1 = styled.h1`
 `;
 
 const P = styled.p`
-	color: #eeece3;
+	color: #D9D5B6;
 	font-size: 40px;
 	margin-top: 24px;
 	max-width: 600px;
@@ -82,6 +99,12 @@ const Wrapper = styled.div`
 `;
 
 const Hero = () => {
+    const [hover, setHover] = useState(false)
+
+    const onHover = () => {
+        setHover(!hover)
+    }
+
 	return (
 		<Container>
 			<Background>
@@ -91,7 +114,7 @@ const Hero = () => {
 				<H1>921steak</H1>
 				<P>best steak in the game</P>
 				<Wrapper>
-					<Button to='reserve' primary='true' exact='true' >Make Reservations</Button>
+					<Button to='reserve' primary={true} exact='true' dark='true' onMouseEnter={onHover} onMouseLeave={onHover} >Make Reservations</Button>
 				</Wrapper>
 			</Content>
 		</Container>
