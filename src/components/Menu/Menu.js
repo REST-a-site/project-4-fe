@@ -33,6 +33,7 @@ const Menu = () => {
 								<>
 									<h3>{el.item_name}</h3>
 									<h4>{el.item_description}</h4>
+									<p> Active: {el.item_active ? 'Yes' : 'No'}</p>
 								</>
 							);
 						})}
