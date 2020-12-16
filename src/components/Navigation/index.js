@@ -1,63 +1,201 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Link as LinkRouter } from 'react-router-dom'
-import { Link as LinkScroll } from 'react-scroll'
+import React, { useState, useEffect } from "react";
+import { FaBars } from "react-icons/fa";
+import styled from "styled-components";
+import { Link as LinkRouter } from "react-router-dom";
+import { Link as LinkScroll } from "react-scroll";
 
-const Nav = styled.nav``
+const NavWrapper = styled.nav`
+	align-items: center;
+	background: ${({ scroll }) => (scroll ? "#000" : "transparent")};
+	display: flex;
+	font-size: 1rem;
+	height: 80px;
+	margin-top: -80px;
+	justify-content: center;
+	position: sticky;
+	top: 0;
+	z-index: 10;
 
-const Container = styled.div``
+	@media screen and (max-width: 960px) {
+		transition: 0.8s all ease;
+	}
+`;
 
-const Logo = styled(LinkRouter)``
+const Container = styled.div`
+	display: flex;
+	height: 80px;
+	justify-content: space-between;
+	max-width: 1100px;
+	padding: 0 24px;
+	width: 100%;
+	z-index: 1;
+`;
 
-const BurgerButton = styled.div``
+const Logo = styled(LinkRouter)`
+	align-items: center;
+	color: #d9d5b6;
+	cursor: pointer;
+	display: flex;
+	font-size: 1.5rem;
+	font-weight: bold;
+	justify-self: flex-start;
+	margin-left: 24px;
+	text-decoration: none;
 
-const BurgerMenu = styled.ul``
+	@media screen and (max-width: 780px) {
+		margin-top: -10px;
+	}
+`;
 
-const BurgerItem = styled.li``
+const BurgerButton = styled.div`
+	display: none;
 
-const BurgerLink = styled(LinkScroll)``
+	@media screen and (max-width: 780px) {
+		color: #d9d5b6;
+		cursor: pointer;
+		display: block;
+		font-size: 1.8rem;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform: translate(-100%, 60%);
+	}
+`;
 
-const LogInButton = styled.nav``
+const BurgerMenu = styled.ul`
+	align-items: center;
+	display: flex;
+	list-style: none;
+	margin-right: -24px;
+	text-align: center;
 
-const LogInLink = styled(LinkRouter)``
+	@media screen and (max-width: 780px) {
+		display: none;
+	}
+`;
+
+const BurgerItem = styled.li`
+	height: 80px;
+`;
+
+const BurgerLink = styled(LinkScroll)`
+	align-items: center;
+	color: #d9d5b6;
+	cursor: pointer;
+	display: flex;
+	height: 100%;
+	padding: 0 1rem;
+	text-decoration: none;
+
+	&.active {
+		border-bottom: 3px solid #9b9388;
+	}
+`;
+
+const BurgerRouter = styled(LinkRouter)`
+	align-items: center;
+	color: #d9d5b6;
+	cursor: pointer;
+	display: flex;
+	height: 100%;
+	padding: 0 1rem;
+	text-decoration: none;
+
+	&.active {
+		border-bottom: 3px solid #9b9388;
+	}
+`;
+
+const LogInButton = styled.nav`
+	align-items: center;
+	display: flex;
+
+	@media screen and (max-width: 768px) {
+		display: none;
+	}
+`;
+
+const LogInLink = styled(LinkRouter)`
+	background: #9b9388;
+	border-radius: 50px;
+	border: none;
+	color: #d9d5b6;
+	cursor: pointer;
+	font-size: 16px;
+	outline: none;
+	padding: 10px 22px;
+	text-decoration: none;
+	transition: all 0.2s ease-in-out;
+	white-space: nowrap;
+
+	&:hover {
+		transition: all 0.2s ease-in-out;
+		background: #fff;
+		color: #d9d5b6;
+	}
+`;
 
 const Nav = () => {
-    return (
-        <Nav>
-            <Container>
-                <Logo to='/'>921</Logo>
-                <BurgerButton>
-                    burger menu here
-                </BurgerButton>
-                <BurgerMenu>
-                    <BurgerItem>
-                        <BurgerRouter to='/'>Home</BurgerRouter>
-                    </BurgerItem>
-                    <BurgerItem>
-                        <BurgerRouter to='/menu'>Menu</BurgerRouter>
-                    </BurgerItem>
-                    <BurgerItem>
-                        <BurgerRouter to='/events'>Private Events</BurgerRouter>
-                    </BurgerItem>
-                    <BurgerItem>
-                        <BurgerLink to='reservations' exact='true'>Reservations</BurgerLink>
-                    </BurgerItem>
-                    <BurgerItem>
-                        <BurgerLink to='about' exact='true'>About</BurgerLink>
-                    </BurgerItem>
-                    <BurgerItem>
-                        <BurgerLink to='contact' exact='true'>Contact</BurgerLink>
-                    </BurgerItem>
-                    <BurgerItem>
-                        <BurgerLink to='team' exact='true'>Team</BurgerLink>
-                    </BurgerItem>
-                </BurgerMenu>
-                <LogInButton>
-                    <LogInLink to='/login' exact='true'>LogIn</LogInLink>
-                </LogInButton>
-            </Container>
-        </Nav>
-    )
-}
+	const [scroll, setScroll] = useState(false);
 
-export default Nav
+	const changeScroll = () => {
+		if (window.scroll >= 40) {
+			setScroll(true);
+		} else {
+			setScroll(false);
+		}
+	};
+
+	useEffect(() => {
+		window.addEventListener("scroll", changeScroll);
+	}, []);
+
+	return (
+		<NavWrapper scroll={scroll}>
+			<Container>
+				<Logo to='/'>921</Logo>
+				<BurgerButton>
+					<FaBars />
+				</BurgerButton>
+				<BurgerMenu>
+					<BurgerItem>
+						<BurgerRouter to='/'>Home</BurgerRouter>
+					</BurgerItem>
+					<BurgerItem>
+						<BurgerRouter to='/menu'>Menu</BurgerRouter>
+					</BurgerItem>
+					<BurgerItem>
+						<BurgerRouter to='/events'>Private Events</BurgerRouter>
+					</BurgerItem>
+					<BurgerItem>
+						<BurgerLink to='reservations' exact='true'>
+							Reservations
+						</BurgerLink>
+					</BurgerItem>
+					<BurgerItem>
+						<BurgerLink to='about' exact='true'>
+							About
+						</BurgerLink>
+					</BurgerItem>
+					<BurgerItem>
+						<BurgerLink to='contact' exact='true'>
+							Contact
+						</BurgerLink>
+					</BurgerItem>
+					<BurgerItem>
+						<BurgerLink to='team' exact='true'>
+							Team
+						</BurgerLink>
+					</BurgerItem>
+				</BurgerMenu>
+				<LogInButton>
+					<LogInLink to='/login' exact='true'>
+						LogIn
+					</LogInLink>
+				</LogInButton>
+			</Container>
+		</NavWrapper>
+	);
+};
+
+export default Nav;

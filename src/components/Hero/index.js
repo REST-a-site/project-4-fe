@@ -114,9 +114,9 @@ const Hero = () => {
 				<Wrapper>
 					<Button
 						to='reserve'
-						primary={true}
+						primary='true'
 						exact='true'
-						dark={true}
+						dark='true'
 						onMouseEnter={onHover}
 						onMouseLeave={onHover}>
 						Make Reservations
