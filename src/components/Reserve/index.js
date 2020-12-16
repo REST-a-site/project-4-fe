@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -47,9 +47,9 @@ const ColumnTwo = styled.div`
 	padding: 0 15px;
 `;
 
-const Widget = styled.iframe`
-// unsure how to style an iframe
-`;
+const WidgetDesktop = styled.div``;
+
+const WidgetMobile = styled.div``
 
 const ImgContainer = styled.div`
 	height: 100%;
@@ -63,18 +63,58 @@ const Img = styled.img`
 `;
 
 const Reserve = () => {
+	const [widgetView, setWidgetView] = useState()
+
+	// when page loads, 
+
+
+	const openTable = document.getElementById("ot-widget-container0");
+	console.log(openTable);
+
+	useEffect(() => {
+		const script = document.createElement("script");
+
+		const urlMobile =
+			"//www.opentable.com/widget/reservation/loader?rid=432&theme=standard&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website";
+
+		const urlDesktop =
+			"//www.opentable.com/widget/reservation/loader?rid=432&theme=wide&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website";
+
+			console.log(window.innerWidth);
+
+		if (window.innerWidth < 500) {
+			script.src = urlMobile;
+		} else {
+			script.src = urlDesktop;
+		}
+
+		script.async = true;
+		console.log(
+			document.body.childNodes[3].childNodes[3].childNodes[0].childNodes[0]
+				.childNodes[0]
+		);
+		document.body.childNodes[3].childNodes[3].childNodes[0].childNodes[0].childNodes[0].appendChild(
+			script
+		);
+		return () => {
+			document.body.childNodes[3].childNodes[3].childNodes[0].childNodes[0].childNodes[0].removeChild(
+				script
+			);
+		};
+	}, []);
+
+	if (window.innerWidth < 500) {
+		
+	}
+
+
 	return (
 		<Container altBg={true}>
 			<Wrapper>
 				<Row imgPosition={true}>
 					<ColumnOne>
-						<Widget src='//www.opentable.com/widget/reservation/loader?rid=412810&rid=1047919&type=multi&theme=standard&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website'></Widget>
+						<OpenTable />
 					</ColumnOne>
-					<ColumnTwo>
-						<ImgContainer>
-							<Img src={require('../../images/food4.jpg').default} alt='food' />
-						</ImgContainer>
-					</ColumnTwo>
 				</Row>
 			</Wrapper>
 		</Container>

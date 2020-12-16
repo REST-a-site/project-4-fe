@@ -1,14 +1,12 @@
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+import axios from "axios";
+import { AppContext } from '../../AppContext'
 
 const Container = styled.div`
-	background: linear-gradient(
-		108deg,
-		#d9d5b6 0%,
-		#1F262E 100%
-	);
+	background: linear-gradient(108deg, #d9d5b6 0%, #1f262e 100%);
 	bottom: 0;
 	left: 0;
 	min-height: 700px;
@@ -31,7 +29,7 @@ const Wrapper = styled.div`
 `;
 
 const Icon = styled(Link)`
-    color: #1F262E;
+	color: #1f262e;
 	font-size: 32px;
 	font-weight: 700;
 	margin-left: 32px;
@@ -94,7 +92,7 @@ const Input = styled.input`
 `;
 
 const FormButton = styled.button`
-	color: #1F262E;
+	color: #1f262e;
 	border-radius: 4px;
 	border: none;
 	background: #d9d5b6;
@@ -111,6 +109,39 @@ const Text = styled.span`
 `;
 
 const LogIn = () => {
+	const { userInfo, setUserInfo } = useContext(AppContext);
+	const [sent, setSent] = useState(false);
+	const history = useHistory();
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		setSent(true);
+		// setFormState({ ...formState, formErr: "" });
+		axios({
+			method: "post",
+			url: "http://localhost:8000/token/login/",
+			data: {
+				// email: email,
+				// password: password,
+			},
+		})
+			.then((res) => {
+				setUserInfo({
+					// _id: res.data._id,
+					// email: res.data.email,
+				});
+			})
+			.then((res) => {
+				// if (!formState.formErr) {
+				// 	history.push("/");
+				// }
+			})
+			.catch((res) => {
+				// handleBadResponse(res);
+				// return res;
+			});
+	};
+
 	return (
 		<>
 			<Container>
@@ -120,10 +151,26 @@ const LogIn = () => {
 						<Form>
 							<H1>Log in to view account</H1>
 							<Label htmlFor='for'>Email</Label>
-							<Input type='email' required></Input>
+							<Input
+								type='email'
+								required
+								// onChange={(event) => setEmail(event.target.value)}
+								// value={email}
+								>
+
+								</Input>
 							<Label htmlFor='for'>Password</Label>
-							<Input type='password'></Input>
-							<FormButton type='submit'>Continue</FormButton>
+							<Input
+								type='password'
+								required
+								// onChange={(event) => setPassword(event.target.value)}
+								// value={password}
+								></Input>
+							<FormButton type='submit' 
+							// onSubmit={handleSubmit}
+							>
+								Continue
+							</FormButton>
 							<Text>Forgot password?</Text>
 						</Form>
 					</Content>
