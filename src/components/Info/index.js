@@ -148,7 +148,7 @@ const Info = ({
 				</Row>
 			</Wrapper>
 
-        {(double) ? <Wrapper>
+        {/* {(double) ? <Wrapper>
 				<Row imgPosition={!imgPosition}>
 					<ColumnOne>
 						<Content>
@@ -165,7 +165,7 @@ const Info = ({
 						</ImgContainer>
 					</ColumnTwo>
 				</Row>
-			</Wrapper> : null}
+			</Wrapper> : null} */}
 
 		</Container>
 	);
