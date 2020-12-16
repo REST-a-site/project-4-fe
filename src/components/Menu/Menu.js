@@ -23,19 +23,22 @@ const Menu = () => {
 	return (
 		<>
 			<GlobalStyle />
-			{console.log(menu[0].menu_item_names)}
-			<h2>{menu[0].menu_name}</h2>
-			<h4>{menu[0].menu_description}</h4>
-			<div>
-				{menu[0].menu_item_names.map((el) => (
+			{menu.map((el) => {
+				return (
 					<>
-                        <h1>{el.item_name}</h1>
-                        <h3>{el.price}</h3>
-						<h5>{el.item_description}</h5>
+						<h1>{el.menu_name}</h1>
+						<h4>{el.menu_description}</h4>
+						{el.menu_item_names.map((el) => {
+							return (
+								<>
+									<h3>{el.item_name}</h3>
+									<h4>{el.item_description}</h4>
+								</>
+							);
+						})}
 					</>
-				))}
-			</div>
-			Appetizers Salads
+				);
+			})}
 		</>
 	);
 };
