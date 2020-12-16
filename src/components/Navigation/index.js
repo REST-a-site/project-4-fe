@@ -148,12 +148,16 @@ const Nav = () => {
 
 	useEffect(() => {
 		window.addEventListener("scroll", changeScroll);
-	}, []);
+    }, []);
+    
+    const scrollHome = () => {
+        scroll.scrollToTop()
+    }
 
 	return (
 		<NavWrapper scroll={scroll}>
 			<Container>
-				<Logo to='/'>921</Logo>
+				<Logo to='/' onClick={scrollHome}>921</Logo>
 				<BurgerButton>
 					<FaBars />
 				</BurgerButton>
