@@ -1,4 +1,25 @@
 import React from 'react'
+import styled from 'styled-components'
+import { Link as LinkRouter } from 'react-router-dom'
+import { Link as LinkScroll } from 'react-scroll'
+
+const Nav = styled.nav``
+
+const Container = styled.div``
+
+const Logo = styled(LinkRouter)``
+
+const BurgerButton = styled.div``
+
+const BurgerMenu = styled.ul``
+
+const BurgerItem = styled.li``
+
+const BurgerLink = styled(LinkScroll)``
+
+const LogInButton = styled.nav``
+
+const LogInLink = styled(LinkRouter)``
 
 const Nav = () => {
     return (
