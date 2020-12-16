@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+
 import styled, { css } from "styled-components";
 import { FadeIn, LazyLoader } from "../Styles/index";
 import interior5 from "../media/images/interior5.jpg";
@@ -47,24 +47,3 @@ const Paragraph = styled.p`
 		font-size: 20px;
 	}
 `;
-
-const Hero = () => {
-	const [background, setBackground] = useState();
-	const images = [interior5, interior6, interior7];
-
-	useEffect(() => {
-		let randomImage = images[Math.floor(Math.random() * 3)];
-		setBackground(randomImage);
-	}, []);
-
-	if (!background) return <LazyLoader>Loading...</LazyLoader>;
-
-	return (
-		<Container background={background}>
-			<Title>921steak</Title>
-			<Paragraph>best steak in the game</Paragraph>
-		</Container>
-	);
-};
-
-export default Hero;
