@@ -13,8 +13,6 @@ const Container = styled.div`
 	position: relative;
 	z-index: 1;
 
-	// :before styling from https://www.youtube.com/watch?v=Nl54MJDR2p8&amp%3Bt=12846s&ab_channel=BrianDesign
-
 	:before {
 		content: "";
 		position: absolute;
@@ -48,7 +46,7 @@ const VideoImport = styled.video`
 	height: 100%;
 	object-fit: cover;
 	width: 100%;
-    background: #181A1B;
+	background: #181a1b;
 `;
 
 const Content = styled.div`
@@ -62,7 +60,7 @@ const Content = styled.div`
 `;
 
 const H1 = styled.h1`
-	color: #D9D5B6;
+	color: #d9d5b6;
 	font-size: 72px;
 	text-align: center;
 
@@ -76,7 +74,7 @@ const H1 = styled.h1`
 `;
 
 const P = styled.p`
-	color: #D9D5B6;
+	color: #d9d5b6;
 	font-size: 40px;
 	margin-top: 24px;
 	max-width: 600px;
@@ -99,11 +97,11 @@ const Wrapper = styled.div`
 `;
 
 const Hero = () => {
-    const [hover, setHover] = useState(false)
+	const [hover, setHover] = useState(false);
 
-    const onHover = () => {
-        setHover(!hover)
-    }
+	const onHover = () => {
+		setHover(!hover);
+	};
 
 	return (
 		<Container>
@@ -114,7 +112,15 @@ const Hero = () => {
 				<H1>921steak</H1>
 				<P>best steak in the game</P>
 				<Wrapper>
-					<Button to='reserve' primary={true} exact='true' dark='true' onMouseEnter={onHover} onMouseLeave={onHover} >Make Reservations</Button>
+					<Button
+						to='reserve'
+						primary={true}
+						exact='true'
+						dark='true'
+						onMouseEnter={onHover}
+						onMouseLeave={onHover}>
+						Make Reservations
+					</Button>
 				</Wrapper>
 			</Content>
 		</Container>
