@@ -7,7 +7,7 @@ import { IconContext } from "react-icons/lib";
 
 const NavWrapper = styled.nav`
 	align-items: center;
-	background: ${({ scroll }) => (scroll ? "#000" : "transparent")};
+	background: ${({ scrollValue }) => (scrollValue ? "#1F262E" : "transparent")};
 	display: flex;
 	font-size: 1rem;
 	height: 80px;
@@ -37,14 +37,15 @@ const Logo = styled(LinkRouter)`
 	color: #d9d5b6;
 	cursor: pointer;
 	display: flex;
-	font-size: 1.5rem;
+	font-size: 60px;
 	font-weight: bold;
 	justify-self: flex-start;
 	margin-left: 24px;
 	text-decoration: none;
 
 	@media screen and (max-width: 780px) {
-		margin-top: -10px;
+        margin-top: -10px;
+        font-size: 24px;
 	}
 `;
 
@@ -137,13 +138,13 @@ const LogInLink = styled(LinkRouter)`
 `;
 
 const Nav = ({ toggle }) => {
-	const [scroll, setScroll] = useState(false);
+	const [scrollValue, setScrollValue] = useState(false);
 
 	const changeScroll = () => {
-		if (window.scroll >= 40) {
-			setScroll(true);
+		if (window.scrollY >= 80) {
+			setScrollValue(true);
 		} else {
-			setScroll(false);
+			setScrollValue(false);
 		}
 	};
 
@@ -152,12 +153,13 @@ const Nav = ({ toggle }) => {
 	}, []);
 
 	const scrollHome = () => {
-		scroll.scrollToTop();
+        // window.scroll.scrollToTop()
+        console.log('need to fix this');
 	};
 
 	return (
 		<IconContext.Provider value={{ color: "#d9d5b6" }}>
-			<NavWrapper scroll={scroll}>
+			<NavWrapper scrollValue={scrollValue}>
 				<Container>
 					<Logo to='/' onClick={scrollHome}>
 						921

@@ -6,6 +6,7 @@ import Reserve from '../components/Reserve'
 import Navigation from '../components/Navigation'
 import Sidebar from '../components/Sidebar'
 import Footer from '../components/Footer'
+import { About, Team } from '../components/Info/Data'
 
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -20,9 +21,9 @@ const Home = () => {
         <Navigation toggle={toggle} />
         <Hero />
         <Reserve />
-        <Info />
+        <Info {...About} />
         <Contact />
-        <Info />
+        <Info {...Team} />
         <Footer />
 
         </>
