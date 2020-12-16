@@ -115,7 +115,7 @@ const LogIn = () => {
 		<>
 			<Container>
 				<Wrapper>
-					<Icon to-='/'>921</Icon>
+					<Icon to='/'>921</Icon>
 					<Content>
 						<Form>
 							<H1>Log in to view account</H1>
