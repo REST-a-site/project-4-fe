@@ -119,7 +119,7 @@ const Hero = () => {
 						dark='true'
 						onMouseEnter={onHover}
 						onMouseLeave={onHover}>
-						Make Reservations
+						Make A Reservation!
 					</Button>
 				</Wrapper>
 			</Content>
