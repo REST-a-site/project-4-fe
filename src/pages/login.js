@@ -1,7 +1,12 @@
 import React from "react";
+import LogIn from '../components/LogIn'
+import ScrollToTop from '../components/utils'
 
-const LogIn = () => {
-	return <div>Future home of LogIn component</div>;
+const LogInPage = () => {
+	return <>
+	<ScrollToTop />
+	<LogIn />
+	</>
 };
 
-export default LogIn;
+export default LogInPage;
