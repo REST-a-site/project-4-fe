@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import Axios from 'axios';
 
 let url = 'https://warm-fjord-68987.herokuapp.com/api/menu';

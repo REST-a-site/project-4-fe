@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
-import axios from "axios";
-import { AppContext } from '../../AppContext'
+// import { useHistory } from "react-router-dom";
+// import axios from "axios";
+// import { AppContext } from '../../AppContext'
 
 const Container = styled.div`
 	background: linear-gradient(108deg, #d9d5b6 0%, #1f262e 100%);
@@ -109,38 +109,38 @@ const Text = styled.span`
 `;
 
 const LogIn = () => {
-	const { userInfo, setUserInfo } = useContext(AppContext);
-	const [sent, setSent] = useState(false);
-	const history = useHistory();
+	// const { userInfo, setUserInfo } = useContext(AppContext);
+	// const [sent, setSent] = useState(false);
+	// const history = useHistory();
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		setSent(true);
-		// setFormState({ ...formState, formErr: "" });
-		axios({
-			method: "post",
-			url: "http://localhost:8000/token/login/",
-			data: {
-				// email: email,
-				// password: password,
-			},
-		})
-			.then((res) => {
-				setUserInfo({
-					// _id: res.data._id,
-					// email: res.data.email,
-				});
-			})
-			.then((res) => {
-				// if (!formState.formErr) {
-				// 	history.push("/");
-				// }
-			})
-			.catch((res) => {
-				// handleBadResponse(res);
-				// return res;
-			});
-	};
+	// const handleSubmit = (e) => {
+	// 	e.preventDefault();
+	// 	setSent(true);
+	// 	setFormState({ ...formState, formErr: "" });
+	// 	axios({
+	// 		method: "post",
+	// 		url: "http://localhost:8000/token/login/",
+	// 		data: {
+	// 			email: email,
+	// 			password: password,
+	// 		},
+	// 	})
+	// 		.then((res) => {
+	// 			setUserInfo({
+	// 				_id: res.data._id,
+	// 				email: res.data.email,
+	// 			});
+	// 		})
+	// 		.then((res) => {
+	// 			if (!formState.formErr) {
+	// 				history.push("/");
+	// 			}
+	// 		})
+	// 		.catch((res) => {
+	// 			handleBadResponse(res);
+	// 			return res;
+	// 		});
+	// };
 
 	return (
 		<>

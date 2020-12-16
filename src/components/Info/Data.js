@@ -3,6 +3,7 @@ export const About = {
     id: 'about',
     altBg: false,
     altText: true,
+    altTwoText: false,
     altTextDescription: true,
     intro: "Find out more",
     h1: "About Us",
@@ -13,7 +14,6 @@ export const About = {
     alt: "Restaurant interior",
     dark: true,
     primary: true,
-    altText: false,
 }
 
 export const ChefOne = {
