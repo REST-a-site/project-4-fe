@@ -5,6 +5,8 @@ import ReserveMobile from "../ReserveMobile";
 
 const Container = styled.div``;
 
+
+
 const Reserve = () => {
 	const [windowSize, setWindowSize] = useState();
 
@@ -21,7 +23,7 @@ const Reserve = () => {
 	if (!windowSize) return <h1>Loading...</h1>
 
 	return (
-		<Container>
+		<Container id ='reserve'>
 			{windowSize < breakpoint ? <ReserveMobile /> : <ReserveDesktop />}
 
 		</Container>

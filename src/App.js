@@ -5,7 +5,6 @@ import Home from "./pages";
 import LogIn from "./pages/login";
 import Events from "./pages/events";
 import Menu from "./pages/menu";
-import { AppContext } from "./AppContext";
 
 const App = () => {
 	const [userInfo, setUserInfo] = useState()
@@ -21,7 +20,6 @@ const App = () => {
 	}
 
 	return (
-		<AppContext.Provider value={{ userInfo, setUserInfo }}>
 			<Router>
 				<Switch>
 					<Route path='/' component={Home} exact />
@@ -30,7 +28,6 @@ const App = () => {
 					<Route path='/menu' component={Menu} exact />
 				</Switch>
 			</Router>
-		</AppContext.Provider>
 	);
 };
 

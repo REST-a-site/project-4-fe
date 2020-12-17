@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Container = styled.div`
-	background: ${({ altBg }) => (altBg ? "#9b9388" : "#1f262E")};
+	background: ${({ altBg }) => (altBg ? '#9b9388' : '#1f262E')};
 	color: #d9d5b6;
 
 	@media screen and (max-width: 780px) {
@@ -59,15 +59,15 @@ const Img = styled.img`
 `;
 const Contact = () => {
 	return (
-		<Container altBg={true}>
+		<Container altBg={true} id='contact'>
 			<Wrapper>
 				<Row imgPosition={true}>
 					<ColumnOne>
-                    <h1>Contact Me Form Here</h1>
+						<h1>Contact Me Form Here</h1>
 					</ColumnOne>
 					<ColumnTwo>
 						<ImgContainer>
-							<Img src={require("../../images/food3.jpg").default} alt='food' />
+							<Img src={require('../../images/food3.jpg').default} alt='food' />
 						</ImgContainer>
 					</ColumnTwo>
 				</Row>
@@ -76,4 +76,4 @@ const Contact = () => {
 	);
 };
 
-export default Contact
+export default Contact;
