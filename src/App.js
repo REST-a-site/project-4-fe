@@ -7,23 +7,17 @@ import Events from "./pages/events";
 import Menu from "./pages/menu";
 
 const App = () => {
-	const [userInfo, setUserInfo] = useState()
-
-	if (!userInfo) {
-		const storedUser = {
-			username: localStorage.getItem(''),
-			_id: localStorage.getItem(''),
-		};
-		if (storedUser.username && storedUser._id) {
-			setUserInfo(storedUser);
-		}
-	}
+	const [ token, setToken ] = useState ('')
 
 	return (
+
 			<Router>
 				<Switch>
 					<Route path='/' component={Home} exact />
-					<Route path='/login' component={LogIn} exact />
+					<Route exact path='/login' render={() => {
+						return <LogIn setToken={setToken} token={token} />
+					}} 
+					/>
 					<Route path='/events' component={Events} exact />
 					<Route path='/menu' component={Menu} exact />
 				</Switch>

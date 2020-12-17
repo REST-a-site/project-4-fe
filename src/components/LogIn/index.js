@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-// import { useHistory } from "react-router-dom";
-// import axios from "axios";
-// import { AppContext } from '../../AppContext'
+import axios from 'axios';
 
 const Container = styled.div`
 	background: linear-gradient(108deg, #d9d5b6 0%, #1f262e 100%);
@@ -108,39 +106,27 @@ const Text = styled.span`
 	text-align: center;
 `;
 
-const LogIn = () => {
-	// const { userInfo, setUserInfo } = useContext(AppContext);
-	// const [sent, setSent] = useState(false);
-	// const history = useHistory();
+const LogIn = ({token, setToken}) => {
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
 
-	// const handleSubmit = (e) => {
-	// 	e.preventDefault();
-	// 	setSent(true);
-	// 	setFormState({ ...formState, formErr: "" });
-	// 	axios({
-	// 		method: "post",
-	// 		url: "http://localhost:8000/token/login/",
-	// 		data: {
-	// 			email: email,
-	// 			password: password,
-	// 		},
-	// 	})
-	// 		.then((res) => {
-	// 			setUserInfo({
-	// 				_id: res.data._id,
-	// 				email: res.data.email,
-	// 			});
-	// 		})
-	// 		.then((res) => {
-	// 			if (!formState.formErr) {
-	// 				history.push("/");
-	// 			}
-	// 		})
-	// 		.catch((res) => {
-	// 			handleBadResponse(res);
-	// 			return res;
-	// 		});
-	// };
+	function handleSubmit(event){
+		event.preventDefault()
+		axios({
+			method: 'POST',
+			url: 'https://warm-fjord-68987.herokuapp.com/token/login',
+			data: {
+				username: email,
+				password,
+			},
+		})
+		.then((res) => { 
+			// setToken(res.data.auth_token)
+			console.log(res.data)
+			console.log(token)
+		})
+		.catch(console.error)
+	}
 
 	return (
 		<>
@@ -148,27 +134,32 @@ const LogIn = () => {
 				<Wrapper>
 					<Icon to='/'>921</Icon>
 					<Content>
-						<Form>
+						<Form onSubmit={handleSubmit}>
 							<H1>Log in to view account</H1>
 							<Label htmlFor='for'>Email</Label>
 							<Input
 								type='email'
 								required
-								// onChange={(event) => setEmail(event.target.value)}
-								// value={email}
-								>
-
-								</Input>
+								onChange={(event) => setEmail(event.target.value)}
+								value={email}
+								/>
 							<Label htmlFor='for'>Password</Label>
 							<Input
 								type='password'
 								required
-								// onChange={(event) => setPassword(event.target.value)}
-								// value={password}
-								></Input>
-							<FormButton type='submit' 
-							// onSubmit={handleSubmit}
-							>
+								onChange={(event) => setPassword(event.target.value)}
+								value={password}
+								/>
+							{/* <Label htmlFor='for'>Confirm Password</Label>
+							<Input
+								type='repassword'
+								required
+								onChange={(event) => setRepassword(event.target.value)}
+								value={repassword}
+								>
+
+								</Input> */}
+							<FormButton>
 								Continue
 							</FormButton>
 							<Text>Forgot password?</Text>
