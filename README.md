@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+### Your group members and scrum leader (if applicable) 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Jake (PM), Sam, JT
 
-## Available Scripts
+### Your project idea 
 
-In the project directory, you can run:
+- We are creating a web template  to enable restaurants to better manage their digital presence.  To demonstrate the template, we will be showcasing our hypothetical steakhouse "921steak".  
 
-### `npm start`
+### Your tech stack (frontend, backend, database)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- FE - React.js
+- BE - Python/Django
+- PostgresQL
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### List of backend models and their properties
 
-### `npm test`
+- User
+    - Email
+    - Password
+    - Full Name
+    - Status
+    - Role
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Menu
+    - Title
+    - Description
+    - Footer
+    - Status
 
-### `npm run build`
+- MenuSections
+    - Title
+    - Description
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- MenuItems
+    - Title
+    - Description
+    - Price
+    - Status
+    - Allergens
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Hours
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    - Sunday
+        
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### React component hierarchy (if applicable)
 
-### `npm run eject`
+- Home
+    - Hero
+    - About
+        - Hours
+    - Team
+    - Reserve
+    - Contact
+- PrivateEvents
+- Menu
+- Manage
+    - MenuForm
+    - HoursForm
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### User stories
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- As a user, I would like to be able to see when the restaurant is open, place a call, or get a reservation all from the home page, because it's convenient.
+- As a user, I need to see a visual representation of the restaurant, so I know what to expect.
+- As a user, I would like to be able to submit a form to book a private event, so I can schedule my party.
+- As a user, I would like to be able to submit a form to contact the restaurant, so I can leave feedback.
+- As a user, I would like to be able to link to the social accounts, so I can engage with the business across multiple platforms.
+- As a user, in the footer I would like to see who designed this website, so that I can hire the developers.
+- As an admin user, I need to be able to log into an admin dashboard to update our menu/hours or post/remove menu items, so I can reflect the seasonal changes of the restaurant.
+### Wireframes
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Landing Page and below the fold.
+![img012](https://user-images.githubusercontent.com/68978118/101722893-60349280-3a68-11eb-8603-0536a889c664.jpg)
+- Menu Management
+![img014](https://user-images.githubusercontent.com/68978118/101722849-514de000-3a68-11eb-82a9-02d4c360beb2.jpg)
