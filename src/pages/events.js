@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react';
+import Sidebar from '../components/Sidebar';
+import SimpleNavigation from '../components/SimpleNavigation';
+import PrivateEvents from '../components/PrivateEvents';
+import Footer from '../components/Footer';
 
 const Events = () => {
-    return (
-        <div>
-            Hello World
-        </div>
-    )
-}
+	const [isOpen, setIsOpen] = useState(false);
 
-export default Events
+	const toggle = () => {
+		setIsOpen(!isOpen);
+	};
+	return (
+		<>
+			<Sidebar isOpen={isOpen} toggle={toggle} />
+			<SimpleNavigation toggle={toggle} />
+			<PrivateEvents />
+			<Footer />
+		</>
+	);
+};
+
+export default Events;

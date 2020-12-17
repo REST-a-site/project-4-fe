@@ -128,7 +128,7 @@ const BurgerLinkRouter = styled(LinkRouter)`
 	}
 `;
 
-const LogInButton = styled.nav`
+const CtaBtn = styled.nav`
 	align-items: center;
 	display: flex;
 
@@ -157,7 +157,7 @@ const LogInButton = styled.nav`
 // 	}
 // `;
 
-const Nav = ({ toggle }) => {
+const SimpleNavigation = ({ toggle }) => {
 	const [scrollValue, setScrollValue] = useState(false);
 
 	const changeScroll = () => {
@@ -183,60 +183,22 @@ const Nav = ({ toggle }) => {
 					<LogoRouter to='/' onClick={scrollHome}>
 						921
 					</LogoRouter>
-					<BurgerButton onClick={toggle}>
-						<FaBars />
-					</BurgerButton>
 					<BurgerMenu>
 						<BurgerItem>
-							<BurgerLinkScroll
-								to='about'
-								exact='true'
-								smooth={true}
-								duration={500}
-								spy={true}>
-								About
-							</BurgerLinkScroll>
+							<BurgerLinkRouter to='/' exact='true'>
+								Home
+							</BurgerLinkRouter>
 						</BurgerItem>
 						<BurgerItem>
-							<BurgerLinkScroll
-								to='contact'
-								exact='true'
-								smooth={true}
-								duration={500}
-								spy={true}>
-								Contact
-							</BurgerLinkScroll>
-						</BurgerItem>
-						<BurgerItem>
-							<BurgerLinkScroll
-								to='team'
-								exact='true'
-								smooth={true}
-								duration={500}
-								spy={true}>
-								Team
-							</BurgerLinkScroll>
-						</BurgerItem>
-						<BurgerItem>
-							<BurgerLinkRouter to='/menu'>Menu</BurgerLinkRouter>
-						</BurgerItem>
-						<BurgerItem>
-							<BurgerLinkRouter to='/events'>Private Events</BurgerLinkRouter>
+							<BurgerLinkRouter to='/menu' exact='true'>
+								Menu
+							</BurgerLinkRouter>
 						</BurgerItem>
 					</BurgerMenu>
-					<LogInButton>
-						<ReserveBtn
-							to='reserve'
-							exact='true'
-							smooth={true}
-							spy={true}>
-							Reserve Now!
-						</ReserveBtn>
-					</LogInButton>
 				</Container>
 			</NavWrapper>
 		</IconContext.Provider>
 	);
 };
 
-export default Nav;
+export default SimpleNavigation;
