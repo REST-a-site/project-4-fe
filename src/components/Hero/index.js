@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Video from "../../videos/video.mp4";
-import styled from "styled-components";
-import { Button } from "../Styles";
+import React, { useState } from 'react';
+import Video from '../../videos/video.mp4';
+import styled from 'styled-components';
+import { Link as LinkScroll } from 'react-scroll';
 
 const Container = styled.div`
 	align-items: center;
@@ -14,7 +14,7 @@ const Container = styled.div`
 	z-index: 1;
 
 	:before {
-		content: "";
+		content: '';
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -96,6 +96,26 @@ const Wrapper = styled.div`
 	margin-top: 32px;
 `;
 
+const ReserveBtn = styled(LinkScroll)`
+	background: #9b9388;
+	border-radius: 0px;
+	border: 2.5px solid;
+	color: #d9d5b6;
+	cursor: pointer;
+	font-size: 16px;
+	outline: none;
+	padding: 10px 22px;
+	text-decoration: none;
+	transition: all 0.2s ease-in-out;
+	white-space: nowrap;
+
+	&:hover {
+		transition: all 0.2s ease-in-out;
+		background: #fff;
+		color: #d9d5b6;
+	}
+`;
+
 const Hero = () => {
 	const [hover, setHover] = useState(false);
 
@@ -112,15 +132,17 @@ const Hero = () => {
 				<H1>921steak</H1>
 				<P>best steak in the game</P>
 				<Wrapper>
-					<Button
+					<ReserveBtn
 						to='reserve'
 						primary='true'
 						exact='true'
 						dark='true'
+						smooth={true}
+						duration={500}
 						onMouseEnter={onHover}
 						onMouseLeave={onHover}>
 						Make A Reservation!
-					</Button>
+					</ReserveBtn>
 				</Wrapper>
 			</Content>
 		</Container>
