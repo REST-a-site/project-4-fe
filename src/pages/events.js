@@ -3,7 +3,7 @@ import React from 'react'
 const Events = () => {
     return (
         <div>
-            Future home of Event component
+            Hello World
         </div>
     )
 }
