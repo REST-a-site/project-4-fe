@@ -1,13 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import {
-	FaFacebook,
-	FaInstagram,
-	FaTwitter,
-	FaYoutube,
-	FaLinkedin,
-} from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { animateScroll as Scroll } from 'react-scroll';
 
 export const FooterContainer = styled.footer`
@@ -35,6 +29,7 @@ export const FooterLinksContainer = styled.div`
 
 export const FooterLinksWrapper = styled.div`
 	display: flex;
+	margin-bottom: 50px;
 
 	@media screen and (max-width: 820px) {
 		flex-direction: column;
@@ -55,6 +50,8 @@ export const FooterLinkItems = styled.div`
         margin: 0;
         padding: 10px;
         width: 100%;
+        align-items: center;
+        flex-direction: column;
     }
 `;
 
@@ -66,21 +63,22 @@ export const FooterLinkItems = styled.div`
 export const FooterLink = styled(Link)`
 	color: #ffffff;
 	text-decoration: none;
-    margin-bottom: 0.5rem;
-    padding-left: 2rem;
-    max-width: 100%;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	max-width: 100%;
 	font-size: 14px;
 
 	&:hover {
 		color: #d9d5b6;
 		transition: 0.3s ease-out;
-    }
-
+	}
 `;
 
 export const SocialMedia = styled.section`
 	max-width: 1000px;
 	width: 100%;
+	padding-top: 25px;
+	border-top: 2px solid white;
 `;
 
 export const SocialMediaWrap = styled.div`
@@ -88,7 +86,6 @@ export const SocialMediaWrap = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	max-width: 1100px;
-	margin: 40px auto 0 auto;
 
 	@media screen and (max-width: 820px) {
 		flex-direction: column;
@@ -106,12 +103,17 @@ export const FooterLogo = styled(Link)`
 	margin-bottom: 16px;
 	font-weight: bold;
 
-
+	&:hover {
+		color: #d9d5b6;
+		transition: 0.3s ease-out;
+	}
 `;
 
 export const WebsiteRights = styled.small`
 	color: #ffffff;
 	margin-bottom: 16px;
+	display: flex;
+	justify-content: space-between;
 `;
 
 export const SocialIcons = styled.div`
@@ -147,7 +149,7 @@ const Footer = () => {
 							<FooterLink to='/'>Investors</FooterLink>
 							<FooterLink to='/'>Terms of Service</FooterLink>
 							<FooterLink to='/'>Sponsorships</FooterLink>
-							<FooterLink to='/'>Admin Login</FooterLink>
+							<FooterLink to='/login'>Admin Login</FooterLink>
 						</FooterLinkItems>
 					</FooterLinksWrapper>
 				</FooterLinksContainer>
@@ -157,26 +159,29 @@ const Footer = () => {
 							921
 						</FooterLogo>
 						<WebsiteRights>
-							921 © {new Date().getFullYear()} All Rights Reserved
+							© {new Date().getFullYear()} All Rights Reserved
 						</WebsiteRights>
 						<SocialIcons>
-							<SocialIconLink href='/' target='_blank' aria-label='Facebook'>
+							<SocialIconLink
+								href='/https://www.facebook.com/swiftandsons'
+								target='_blank'
+								aria-label='Facebook'>
 								<FaFacebook />
 							</SocialIconLink>
-							<SocialIconLink href='/' target='_blank' aria-label='Instagram'>
+							<SocialIconLink
+								href='/https://www.instagram.com/swiftandsons/'
+								target='_blank'
+								aria-label='Instagram'>
 								<FaInstagram />
 							</SocialIconLink>
-							<SocialIconLink href='/' target='_blank' aria-label='Twitter'>
+							<SocialIconLink
+								href='/https://twitter.com/swiftandsonschi'
+								target='_blank'
+								aria-label='Twitter'>
 								<FaTwitter />
 							</SocialIconLink>
 							<SocialIconLink href='/' target='_blank' aria-label='Youtube'>
 								<FaYoutube />
-							</SocialIconLink>
-							<SocialIconLink
-								href='//www.linkedin.com/in/jtomassoni'
-								target='_blank'
-								aria-label='Linkedin'>
-								<FaLinkedin />
 							</SocialIconLink>
 						</SocialIcons>
 					</SocialMediaWrap>

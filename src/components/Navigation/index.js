@@ -160,17 +160,17 @@ const LogInButton = styled.nav`
 const Nav = ({ toggle }) => {
 	const [scrollValue, setScrollValue] = useState(false);
 
-	// const changeScroll = () => {
-	// 	if (window.scrollY >= 80) {
-	// 		setScrollValue(true);
-	// 	} else {
-	// 		setScrollValue(false);
-	// 	}
-	// };
+	const changeScroll = () => {
+		if (window.scrollY >= 80) {
+			setScrollValue(true);
+		} else {
+			setScrollValue(false);
+		}
+	};
 
-	// useEffect(() => {
-	// 	window.addEventListener('scroll', changeScroll);
-	// }, []);
+	useEffect(() => {
+		window.addEventListener('scroll', changeScroll);
+	}, []);
 
 	const scrollHome = () => {
 		Scroll.scrollToTop();
