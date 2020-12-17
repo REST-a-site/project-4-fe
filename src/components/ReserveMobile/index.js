@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
 
 const Container = styled.div`
-	background: ${({ altBg }) => (altBg ? "#9b9388" : "#1f262E")};
+	background: ${({ altBg }) => (altBg ? '#9b9388' : '#1f262E')};
 	color: #d9d5b6;
 
 	@media screen and (max-width: 780px) {
@@ -44,16 +44,16 @@ const ColumnOne = styled.div`
 const OpenTable = styled.div``;
 
 const ReserveMobile = () => {
-	useEffect(() => {
-		const script = document.createElement("script");
-		const urlMobile =
-			"//www.opentable.com/widget/reservation/loader?rid=432&theme=standard&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website";
-		script.src = urlMobile;
-		script.async = true;
-		document.body.childNodes[3].childNodes[3].childNodes[0].childNodes[0].childNodes[0].appendChild(
-			script
-		);
-	}, []);
+	// useEffect(() => {
+	// 	const script = document.createElement("script");
+	// 	const urlMobile =
+	// 		"//www.opentable.com/widget/reservation/loader?rid=432&theme=standard&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website";
+	// 	script.src = urlMobile;
+	// 	script.async = true;
+	// 	document.body.childNodes[3].childNodes[3].childNodes[0].childNodes[0].childNodes[0].appendChild(
+	// 		script
+	// 	);
+	// }, []);
 
 	return (
 		<Container altBg={true}>

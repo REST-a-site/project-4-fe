@@ -44,16 +44,16 @@ const ColumnOne = styled.div`
 const OpenTable = styled.div``;
 
 const ReserveDesktop = () => {
-	useEffect(() => {
-		const script = document.createElement("script");
-		const urlDesktop =
-			"//www.opentable.com/widget/reservation/loader?rid=432&theme=wide&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website";
-		script.src = urlDesktop;
-		script.async = true;
-		document.body.childNodes[3].childNodes[3].childNodes[0].childNodes[0].childNodes[0].appendChild(
-			script
-		);
-	}, []);
+	// useEffect(() => {
+	// 	const script = document.createElement("script");
+	// 	const urlDesktop =
+	// 		"//www.opentable.com/widget/reservation/loader?rid=432&theme=wide&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website";
+	// 	script.src = urlDesktop;
+	// 	script.async = true;
+	// 	document.body.childNodes[3].childNodes[3].childNodes[0].childNodes[0].childNodes[0].appendChild(
+	// 		script
+	// 	);
+	// }, []);
 
 	return (
 		<Container altBg={true}>
