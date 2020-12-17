@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar';
-import Navigation from '../components/Navigation';
+import SimpleNavigation from '../components/SimpleNavigation';
 import PrivateEvents from '../components/PrivateEvents';
 import Footer from '../components/Footer';
 
@@ -13,7 +13,7 @@ const Events = () => {
 	return (
 		<>
 			<Sidebar isOpen={isOpen} toggle={toggle} />
-			<Navigation toggle={toggle} />
+			<SimpleNavigation toggle={toggle} />
 			<PrivateEvents />
 			<Footer />
 		</>

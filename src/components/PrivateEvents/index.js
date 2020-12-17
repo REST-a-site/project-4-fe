@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Button } from '../Styles';
 
 const Container = styled.div`
 	background: ${({ altBg }) => (altBg ? '#9b9388' : '#1f262E')};
@@ -48,12 +47,6 @@ const ColumnTwo = styled.div`
 	padding: 0 15px;
 `;
 
-const Content = styled.div`
-	max-width: 540px;
-	padding-bottom: 60px;
-	padding-top: 0;
-`;
-
 const Intro = styled.p`
 	color: #9b9388;
 	font-size: 16px;
@@ -82,11 +75,6 @@ const H1 = styled.h1`
 	@media screen and (max-width: 480px) {
 		font-size: 32px;
 	}
-`;
-
-const ButtonContainer = styled.div`
-	display: flex;
-	justify-content: flex-start;
 `;
 
 const ImgContainer = styled.div`
@@ -162,6 +150,7 @@ export const Text = styled.span`
 const PrivateEvents = () => {
 	const [partySize, setPartySize] = useState(0);
 	const [partyType, setPartyType] = useState('');
+	const [partyDetails, setPartyDetails] = useState('');
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -179,14 +168,24 @@ const PrivateEvents = () => {
 						</Description>
 						<Form>
 							<Label htmlFor='partySize'>Party Size</Label>
-							<InputSelect name='size' id='size' form='sizeform'>
+							<InputSelect
+								name='size'
+								id='size'
+								form='sizeform'
+								onChange={(event) => setPartySize(event.target.value)}
+								value={partySize}>
 								<option value='1-15'>1-15</option>
 								<option value='16-30'>16-30</option>
 								<option value='31-50'>31-50</option>
 								<option value='50+'>50+</option>
 							</InputSelect>
 							<Label htmlFor='partyType'>Party Type</Label>
-							<InputSelect name='type' id='type' form='typeform'>
+							<InputSelect
+								name='type'
+								id='type'
+								form='typeform'
+								onChange={(event) => setPartyType(event.target.value)}
+								value={partyType}>
 								<option value='WeddingReception'>Wedding Reception</option>
 								<option value='birthdayParty'>Birthday Party</option>
 								<option value='CorporateEvent'>Corporate Event</option>
@@ -199,7 +198,10 @@ const PrivateEvents = () => {
 								rows='8'
 								name='details'
 								id='details'
-								form='detailsform' />
+								form='detailsform'
+								onChange={(event) => setPartyDetails(event.target.value)}
+								value={partyDetails}
+							/>
 							<FormButton>Submit</FormButton>
 						</Form>
 					</ColumnOne>
