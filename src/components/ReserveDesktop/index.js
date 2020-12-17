@@ -47,6 +47,7 @@ const OpenTable = styled.div``;
 const ReserveDesktop = () => {
 	const urlDesktop =
 		"//www.opentable.com/widget/reservation/loader?rid=432&theme=wide&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website";
+
 	return (
 		<Container altBg={true}>
 			<Wrapper>

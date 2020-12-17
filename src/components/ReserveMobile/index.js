@@ -1,9 +1,11 @@
+
 import React from "react";
 import styled from "styled-components";
 import ScriptTag from "react-script-tag";
 
+
 const Container = styled.div`
-	background: ${({ altBg }) => (altBg ? "#9b9388" : "#1f262E")};
+	background: ${({ altBg }) => (altBg ? '#9b9388' : '#1f262E')};
 	color: #d9d5b6;
 
 	@media screen and (max-width: 780px) {
@@ -47,6 +49,7 @@ const OpenTable = styled.div``;
 const ReserveMobile = () => {
 	const urlMobile =
 		"//www.opentable.com/widget/reservation/loader?rid=432&theme=standard&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website";
+
 
 	return (
 		<Container altBg={true}>
