@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages";
@@ -7,7 +7,8 @@ import Events from "./pages/events";
 import Menu from "./pages/menu";
 
 const App = () => {
-	const [authToken, setAuthToken] = useState(localStorage.getItem("token"));
+
+	console.log('localstorage from app.js', localStorage);
 
 	return (
 		<Router>
@@ -17,7 +18,7 @@ const App = () => {
 					exact
 					path='/login'
 					render={() => {
-						return <LogIn setAuthToken={setAuthToken} />;
+						return <LogIn />;
 					}}
 				/>
 				<Route path='/events' component={Events} exact />

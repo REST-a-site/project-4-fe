@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import styled from "styled-components";
-// import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import {
 	Container,
@@ -15,10 +15,15 @@ import {
 	Text,
 } from "./styles";
 
-const LogIn = ({ setAuthToken }) => {
+const LogIn = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	// const [data, setData] = useState();
+	// const [token, setToken] = useState('')
+	const history = useHistory();
+
+	// useEffect(() => {
+	// 	if (localStorage.token) return history.push("/");
+	// }), [];
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -31,11 +36,10 @@ const LogIn = ({ setAuthToken }) => {
 			},
 		})
 			.then((res) => {
-				console.log(res.data.auth_token);
-				setAuthToken(res.data.auth_token);
+				console.log("res from axios:", res.data.auth_token);
 				localStorage.setItem("token", res.data.auth_token);
-				// setData(res.data.auth_token);
-				// console.log(data);
+				// setToken(localStorage.token)
+				history.push("/")
 			})
 			.catch(console.error);
 	};
