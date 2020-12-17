@@ -147,26 +147,6 @@ const Info = ({
 					</ColumnTwo>
 				</Row>
 			</Wrapper>
-
-        {/* {(double) ? <Wrapper>
-				<Row imgPosition={!imgPosition}>
-					<ColumnOne>
-						<Content>
-							<Intro altText={altText}>{intro}</Intro>
-							<H1 altTwoText={altTwoText}>{h1}</H1>
-							<Description altTextDescription={altTextDescription}>
-								{description}
-							</Description>
-						</Content>
-					</ColumnOne>
-					<ColumnTwo>
-						<ImgContainer>
-							<Img src={img} alt={alt} />
-						</ImgContainer>
-					</ColumnTwo>
-				</Row>
-			</Wrapper> : null} */}
-
 		</Container>
 	);
 };

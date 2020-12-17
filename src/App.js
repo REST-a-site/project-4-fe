@@ -7,21 +7,23 @@ import Events from "./pages/events";
 import Menu from "./pages/menu";
 
 const App = () => {
-	const [ token, setToken ] = useState ('')
+	const [authToken, setAuthToken] = useState(localStorage.getItem("token"));
 
 	return (
-
-			<Router>
-				<Switch>
-					<Route path='/' component={Home} exact />
-					<Route exact path='/login' render={() => {
-						return <LogIn setToken={setToken} token={token} />
-					}} 
-					/>
-					<Route path='/events' component={Events} exact />
-					<Route path='/menu' component={Menu} exact />
-				</Switch>
-			</Router>
+		<Router>
+			<Switch>
+				<Route path='/' component={Home} exact />
+				<Route
+					exact
+					path='/login'
+					render={() => {
+						return <LogIn setAuthToken={setAuthToken} />;
+					}}
+				/>
+				<Route path='/events' component={Events} exact />
+				<Route path='/menu' component={Menu} exact />
+			</Switch>
+		</Router>
 	);
 };
 
