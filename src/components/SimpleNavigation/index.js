@@ -185,14 +185,14 @@ const SimpleNavigation = ({ toggle }) => {
 					</LogoRouter>
 					<BurgerMenu>
 						<BurgerItem>
-							<BurgerLinkScroll to='/home' exact='true'>
+							<BurgerLinkRouter to='/' exact='true'>
 								Home
-							</BurgerLinkScroll>
+							</BurgerLinkRouter>
 						</BurgerItem>
 						<BurgerItem>
-							<BurgerLinkScroll to='/menu' exact='true'>
+							<BurgerLinkRouter to='/menu' exact='true'>
 								Menu
-							</BurgerLinkScroll>
+							</BurgerLinkRouter>
 						</BurgerItem>
 					</BurgerMenu>
 				</Container>
