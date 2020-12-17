@@ -187,19 +187,6 @@ const Nav = ({ toggle }) => {
 						<FaBars />
 					</BurgerButton>
 					<BurgerMenu>
-						{/* <BurgerItem>
-							<BurgerLinkRouter to='/'>Home</BurgerLinkRouter>
-						</BurgerItem> */}
-						{/* <BurgerItem>
-							<BurgerLinkScroll
-								to='reservations'
-								exact='true'
-								smooth={true}
-								duration={500}
-								spy={true}>
-								Reservations
-							</BurgerLinkScroll>
-						</BurgerItem> */}
 						<BurgerItem>
 							<BurgerLinkScroll
 								to='about'
