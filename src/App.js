@@ -8,9 +8,6 @@ import Menu from "./pages/menu";
 import Edit from "./pages/edit";
 
 const App = () => {
-
-	console.log('localstorage from app.js', localStorage);
-
 	return (
 		<Router>
 			<Switch>
