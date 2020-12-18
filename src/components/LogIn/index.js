@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 // import styled from "styled-components";
-import { useHistory } from "react-router-dom";
-import axios from "axios";
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import {
 	Container,
 	Wrapper,
@@ -13,11 +13,11 @@ import {
 	Input,
 	FormButton,
 	Text,
-} from "./styles";
+} from './styles';
 
 const LogIn = () => {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 	// const [token, setToken] = useState('')
 	const history = useHistory();
 
@@ -28,18 +28,18 @@ const LogIn = () => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		axios({
-			method: "POST",
-			url: "https://warm-fjord-68987.herokuapp.com/token/login",
+			method: 'POST',
+			url: 'https://restasitebackend.herokuapp.com/token/login',
 			data: {
 				username: email,
 				password,
 			},
 		})
 			.then((res) => {
-				console.log("res from axios:", res.data.auth_token);
-				localStorage.setItem("token", res.data.auth_token);
+				console.log('res from axios:', res.data.auth_token);
+				localStorage.setItem('token', res.data.auth_token);
 				// setToken(localStorage.token)
-				history.push("/")
+				history.push('/');
 			})
 			.catch(console.error);
 	};
