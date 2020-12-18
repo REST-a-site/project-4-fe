@@ -221,7 +221,6 @@ const Nav = ({ toggle }) => {
 					<BurgerButton onClick={toggle}>
 						<FaBars />
 					</BurgerButton>
-					{console.log(window.location.href)}
 					{!window.location.href === "http://localhost:3000/events" ? (
 						<>
 							<BurgerMenu>
