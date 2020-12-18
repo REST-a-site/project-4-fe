@@ -4,6 +4,7 @@ import MenuSection from '../MenuSection';
 
 const Menu = () => {
     const [menu, setMenu] = useState();
+    const sections = ["Appetizers", "Shellfish", "Salads", "Entrees", "Prime Steaks", "Large Format Steak", "Sides"]
 
     let url = 'http://restasitebackend.herokuapp.com/api/menu';
     

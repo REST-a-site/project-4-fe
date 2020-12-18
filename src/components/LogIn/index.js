@@ -18,18 +18,13 @@ import {
 const LogIn = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	// const [token, setToken] = useState('')
 	const history = useHistory();
-
-	// useEffect(() => {
-	// 	if (localStorage.token) return history.push("/");
-	// }), [];
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		axios({
 			method: "POST",
-			url: "https://warm-fjord-68987.herokuapp.com/token/login",
+			url: "https://restasitebackend.herokuapp.com/token/login",
 			data: {
 				username: email,
 				password,
