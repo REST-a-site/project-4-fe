@@ -1,3 +1,6 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4d0ecb82-56fb-4323-bb50-a79e65a53a8d/deploy-status)](https://app.netlify.com/sites/rest-a-site/deploys)
+
+
 ### Your group members and scrum leader (if applicable) 
 
 Jake (PM), Sam, JT
