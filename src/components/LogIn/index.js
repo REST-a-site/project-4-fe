@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-// import styled from "styled-components";
-import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
+
 import {
 	Container,
 	Wrapper,
@@ -15,31 +15,26 @@ import {
 	Text,
 } from './styles';
 
-const LogIn = () => {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	// const [token, setToken] = useState('')
+  const LogIn = () => {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 	const history = useHistory();
-
-	// useEffect(() => {
-	// 	if (localStorage.token) return history.push("/");
-	// }), [];
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		axios({
-			method: 'POST',
-			url: 'https://restasitebackend.herokuapp.com/token/login',
+			method: "POST",
+			url: "https://restasitebackend.herokuapp.com/token/login",
 			data: {
 				username: email,
 				password,
 			},
 		})
 			.then((res) => {
-				console.log('res from axios:', res.data.auth_token);
-				localStorage.setItem('token', res.data.auth_token);
-				// setToken(localStorage.token)
-				history.push('/');
+				console.log("res from axios:", res.data.auth_token);
+				localStorage.setItem("token", res.data.auth_token);
+				history.push("/")
+
 			})
 			.catch(console.error);
 	};

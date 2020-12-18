@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const Container = styled.div`
 	background: ${({ altBg }) => (altBg ? '#9b9388' : '#1f262E')};
 	color: #d9d5b6;
+	padding-top: 80px;
 
 	@media screen and (max-width: 780px) {
 		padding: 100px 0;
