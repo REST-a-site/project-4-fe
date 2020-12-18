@@ -4,9 +4,15 @@ import MenuSection from '../MenuSection';
 import styled from 'styled-components'
 
 const Container = styled.div`
-    color: #d9d5b6;
-    background: #1f262e;
-`
+	background: linear-gradient(108deg, #d9d5b6 0%, #1f262e 100%);
+	bottom: 0;
+	left: 0;
+	min-height: 700px;
+	padding-top: 80px;
+	right: 0;
+	top: 0;
+	z-index: 0;
+`;
 const Title = styled.h1``
 
 const LazyLoader = styled.h2``
