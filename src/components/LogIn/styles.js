@@ -70,7 +70,6 @@ export const H1 = styled.h1`
 	color: #d9d5b6;
 	font-size: 20px;
 	font-weight: 400;
-	margin-bottom: 40px;
 	text-align: center;
 `;
 
@@ -97,9 +96,9 @@ export const FormButton = styled.button`
 	padding: 16px 0;
 `;
 
-export const Text = styled.span`
+export const ShouldNotLogin = styled(Link)`
 	color: #d9d5b6;
 	font-size: 14px;
-	margin-top: 24px;
+	margin: 40px;
 	text-align: center;
 `;

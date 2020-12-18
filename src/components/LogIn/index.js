@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-// import styled from "styled-components";
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 import {
 	Container,
 	Wrapper,
@@ -12,18 +13,13 @@ import {
 	Label,
 	Input,
 	FormButton,
-	Text,
+	ShouldNotLogin,
 } from './styles';
 
 const LogIn = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	// const [token, setToken] = useState('')
 	const history = useHistory();
-
-	// useEffect(() => {
-	// 	if (localStorage.token) return history.push("/");
-	// }), [];
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -38,7 +34,6 @@ const LogIn = () => {
 			.then((res) => {
 				console.log('res from axios:', res.data.auth_token);
 				localStorage.setItem('token', res.data.auth_token);
-				// setToken(localStorage.token)
 				history.push('/');
 			})
 			.catch(console.error);
@@ -52,6 +47,10 @@ const LogIn = () => {
 					<Content>
 						<Form onSubmit={handleSubmit}>
 							<H1>Log in to view account</H1>
+							<ShouldNotLogin to='/'>
+								<p>Didn't mean to land here?</p>
+								<p>Click to go home.</p>
+							</ShouldNotLogin>
 							<Label htmlFor='for'>Email</Label>
 							<Input
 								type='email'
@@ -67,7 +66,6 @@ const LogIn = () => {
 								value={password}
 							/>
 							<FormButton>Continue</FormButton>
-							<Text>Forgot password?</Text>
 						</Form>
 					</Content>
 				</Wrapper>
