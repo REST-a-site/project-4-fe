@@ -4,7 +4,8 @@ import MenuSection from '../MenuSection';
 import styled from 'styled-components'
 
 const Container = styled.div`
-
+    color: #d9d5b6;
+    background: #1f262e;
 `
 const Title = styled.h1``
 
