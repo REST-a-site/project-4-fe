@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import axios from "axios";
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import {
 	Container,
@@ -12,29 +13,28 @@ import {
 	Label,
 	Input,
 	FormButton,
-	Text,
+	ShouldNotLogin,
 } from './styles';
 
-  const LogIn = () => {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+const LogIn = () => {
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 	const history = useHistory();
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		axios({
-			method: "POST",
-			url: "https://restasitebackend.herokuapp.com/token/login",
+			method: 'POST',
+			url: 'https://restasitebackend.herokuapp.com/token/login',
 			data: {
 				username: email,
 				password,
 			},
 		})
 			.then((res) => {
-				console.log("res from axios:", res.data.auth_token);
-				localStorage.setItem("token", res.data.auth_token);
-				history.push("/")
-
+				console.log('res from axios:', res.data.auth_token);
+				localStorage.setItem('token', res.data.auth_token);
+				history.push('/');
 			})
 			.catch(console.error);
 	};
@@ -47,6 +47,10 @@ import {
 					<Content>
 						<Form onSubmit={handleSubmit}>
 							<H1>Log in to view account</H1>
+							<ShouldNotLogin to='/'>
+								<p>Didn't mean to land here?</p>
+								<p>Click to go home.</p>
+							</ShouldNotLogin>
 							<Label htmlFor='for'>Email</Label>
 							<Input
 								type='email'
@@ -62,7 +66,6 @@ import {
 								value={password}
 							/>
 							<FormButton>Continue</FormButton>
-							<Text>Forgot password?</Text>
 						</Form>
 					</Content>
 				</Wrapper>
