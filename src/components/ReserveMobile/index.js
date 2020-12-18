@@ -30,7 +30,6 @@ const Row = styled.div`
 
 const ColumnOne = styled.div`
 	grid-area: col1;
-	/* margin-top: 0px; */
 	margin-bottom: 15px;
 	padding: 0 15px;
 `;
