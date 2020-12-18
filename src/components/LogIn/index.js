@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import {
@@ -33,7 +32,6 @@ const LogIn = () => {
 			.then((res) => {
 				console.log("res from axios:", res.data.auth_token);
 				localStorage.setItem("token", res.data.auth_token);
-				// setToken(localStorage.token)
 				history.push("/")
 			})
 			.catch(console.error);
