@@ -139,9 +139,7 @@ const Edit = () => {
     
     let handleChange = (e) => {
         e.preventDefault()
-        console.log(e.target.value);
         setSelection(e.target.value)
-        // setFormState({...formState, [e.target.name]: e.target.value})
     }
 
 	let handleSubmit = (e) => {

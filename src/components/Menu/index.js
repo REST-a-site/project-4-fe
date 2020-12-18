@@ -17,6 +17,7 @@ const Container = styled.div`
 
 	// change this
 	color: #9b9388;
+	text-align: center;
 `;
 const Title = styled.h1``;
 
@@ -26,7 +27,7 @@ const Button = styled(Link)``;
 
 const Menu = () => {
 	const [menu, setMenu] = useState();
-
+	const url = "https://restasitebackend.herokuapp.com/api/menu";
 	const sections = [
 		"Appetizers",
 		"Shellfish",
@@ -37,13 +38,10 @@ const Menu = () => {
 		"Sides",
 	];
 
-	const url = "https://restasitebackend.herokuapp.com/api/menu";
-
 	useEffect(() => {
 		axios(url)
 			.then((res) => {
 				setMenu(res.data);
-				console.log(res.data);
 			})
 			.catch(console.error);
 	}, []);

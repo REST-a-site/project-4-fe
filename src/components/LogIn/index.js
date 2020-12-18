@@ -31,7 +31,7 @@ const LogIn = () => {
 			},
 		})
 			.then((res) => {
-				console.log('res from axios:', res.data.auth_token);
+
 				localStorage.setItem('token', res.data.auth_token);
 				history.push('/');
 			})

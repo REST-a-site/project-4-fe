@@ -22,7 +22,7 @@ export const FooterLinksContainer = styled.div`
 	display: flex;
 	justify-content: center;
 
-	#media screen and (max-width: 820px) {
+	@media screen and (max-width: 820px) {
 		padding-top: 32px;
 	}
 `;
@@ -40,11 +40,8 @@ export const FooterLinkItems = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    margin: 16px;
     text-align: left;
-    width: 160px
     box-sizing: border-box;
-    color: #ffffff;
 
     @media screen and (max-width: 420px){
         margin: 0;
@@ -54,13 +51,9 @@ export const FooterLinkItems = styled.div`
     }
 `;
 
-// export const FooterLinkTitle = styled.h1`
-//     font-size=14px;
-//     margin-bottom: 16px;
-// `;
 
 export const FooterLink = styled(Link)`
-	color: #ffffff;
+	color: #d9d6b6;
 	text-decoration: none;
 	padding-left: 1rem;
 	padding-right: 1rem;
@@ -93,7 +86,7 @@ export const SocialMediaWrap = styled.div`
 `;
 
 export const FooterLogo = styled(Link)`
-	color: #ffffff;
+	color: #d9d6b6;
 	justify-self: start;
 	cursor: pointer;
 	text-decoration: none;
@@ -110,7 +103,7 @@ export const FooterLogo = styled(Link)`
 `;
 
 export const WebsiteRights = styled.small`
-	color: #ffffff;
+	color: #d9d6b6;
 	margin-bottom: 16px;
 	display: flex;
 	justify-content: space-between;
@@ -124,7 +117,7 @@ export const SocialIcons = styled.div`
 `;
 
 export const SocialIconLink = styled.a`
-	color: #ffffff;
+	color: #d9d6b6;
 	font-size: 24px;
 
 	&:hover {
@@ -144,7 +137,6 @@ const Footer = () => {
 				<FooterLinksContainer>
 					<FooterLinksWrapper>
 						<FooterLinkItems>
-							{/* <FooterLinkTitle>Contact Us</FooterLinkTitle> */}
 							<FooterLink to='/'>Careers</FooterLink>
 							<FooterLink to='/'>Investors</FooterLink>
 							<FooterLink to='/'>Terms of Service</FooterLink>
