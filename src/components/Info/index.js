@@ -130,7 +130,8 @@ const Info = ({
 							</Description>
 							<ButtonContainer>
 								<Button
-									to='home'
+									to='reserve'
+									smooth={true}
 									offset={-80}
 									exact='true'
 									primary={primary ? 1 : 0}

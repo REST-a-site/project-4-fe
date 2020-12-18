@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import ScriptTag from 'react-script-tag';
 
 const Container = styled.div`
-	background: ${({ altBg }) => (altBg ? "#9b9388" : "#1f262E")};
+	background: ${({ altBg }) => (altBg ? '#9b9388' : '#1f262E')};
 	color: #d9d5b6;
 
 	@media screen and (max-width: 780px) {
@@ -41,26 +42,16 @@ const ColumnOne = styled.div`
 	padding: 0 15px;
 `;
 
-const OpenTable = styled.div``;
-
 const ReserveDesktop = () => {
-	useEffect(() => {
-		const script = document.createElement("script");
-		const urlDesktop =
-			"//www.opentable.com/widget/reservation/loader?rid=432&theme=wide&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website";
-		script.src = urlDesktop;
-		script.async = true;
-		document.body.childNodes[3].childNodes[3].childNodes[0].childNodes[0].childNodes[0].appendChild(
-			script
-		);
-	}, []);
+	const urlDesktop =
+		'//www.opentable.com/widget/reservation/loader?rid=432&theme=wide&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website';
 
 	return (
 		<Container altBg={true}>
 			<Wrapper>
 				<Row imgPosition={true}>
 					<ColumnOne>
-						<OpenTable />
+						<ScriptTag type='text/javascript' src={urlDesktop} />
 					</ColumnOne>
 				</Row>
 			</Wrapper>
