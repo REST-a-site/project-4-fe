@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Container = styled.div`
 	background: ${({ altBg }) => (altBg ? '#9b9388' : '#1f262E')};
 	color: #d9d5b6;
-	padding-top: 80px;
+	padding-top: 100px;
 
 	@media screen and (max-width: 780px) {
 		padding: 100px 0;
@@ -33,6 +33,7 @@ const Row = styled.div`
 	@media screen and (max-width: 780px) {
 		grid-template-areas: ${({ imgPosition }) =>
 			imgPosition ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
+	
 	}
 `;
 
@@ -81,6 +82,10 @@ const H1 = styled.h1`
 const ImgContainer = styled.div`
 	height: 100%;
 	max-width: 555px;
+
+	@media screen and (max-width: 780px) {
+		display: none;
+	}
 `;
 
 const Img = styled.img`
@@ -161,7 +166,7 @@ const PrivateEvents = () => {
 			<Wrapper>
 				<Row>
 					<ColumnOne>
-						<Intro>Hello</Intro>
+						<Intro>Private Bookings</Intro>
 						<H1>Our many private dining options are available.</H1>
 						<Description>
 							Please tell us more about your goals, and one of our event
@@ -210,10 +215,13 @@ const PrivateEvents = () => {
 						<ImgContainer>
 							<Img
 								src={
-									'https://scontent.fapa1-1.fna.fbcdn.net/v/t1.0-9/12140844_1689385131347326_3486717635046120710_n.jpg?_nc_cat=108&ccb=2&_nc_sid=19026a&_nc_ohc=4csiMtHC0b8AX97BnJd&_nc_ht=scontent.fapa1-1.fna&oh=c91fa824f13e04c7d1a330cbe58b846f&oe=6001A5A5'
+									"https://scontent.fapa1-1.fna.fbcdn.net/v/t1.0-9/12140844_1689385131347326_3486717635046120710_n.jpg?_nc_cat=108&ccb=2&_nc_sid=19026a&_nc_ohc=4csiMtHC0b8AX97BnJd&_nc_ht=scontent.fapa1-1.fna&oh=c91fa824f13e04c7d1a330cbe58b846f&oe=6001A5A5"
 								}
 							/>
 						</ImgContainer>
+						{/* <ImgContainer>
+							<Img src={require("../../images/food2.jpg").default} />
+						</ImgContainer> */}
 					</ColumnTwo>
 				</Row>
 			</Wrapper>
