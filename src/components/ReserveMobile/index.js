@@ -5,15 +5,12 @@ import ScriptTag from 'react-script-tag';
 const Container = styled.div`
 	background: ${({ altBg }) => (altBg ? '#9b9388' : '#1f262E')};
 	color: #d9d5b6;
-
-	@media screen and (max-width: 780px) {
-		padding: 100px 0;
-	}
+	padding: 50px;
 `;
 
 const Wrapper = styled.div`
 	display: grid;
-	height: 860px;
+	height: 300px;
 	justify-content: center;
 	margin-left: auto;
 	margin-right: auto;
@@ -28,19 +25,16 @@ const Row = styled.div`
 	display: grid;
 	grid-auto-columns: minmax(auto, 1fr);
 	grid-template-areas: ${({ imgPosition }) =>
-		imgPosition ? `'col2 col1'` : `'col1 col2'`};
-
-	@media screen and (max-width: 780px) {
-		grid-template-areas: ${({ imgPosition }) =>
-			imgPosition ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
-	}
+		imgPosition ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
 `;
 
 const ColumnOne = styled.div`
 	grid-area: col1;
+	/* margin-top: 0px; */
 	margin-bottom: 15px;
 	padding: 0 15px;
 `;
+
 const ReserveMobile = () => {
 	const urlMobile =
 		'//www.opentable.com/widget/reservation/loader?rid=432&theme=standard&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website';
