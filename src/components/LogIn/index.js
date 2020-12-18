@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 import {
 	Container,
@@ -32,7 +31,7 @@ const LogIn = () => {
 			},
 		})
 			.then((res) => {
-				console.log('res from axios:', res.data.auth_token);
+
 				localStorage.setItem('token', res.data.auth_token);
 				history.push('/');
 			})
@@ -47,10 +46,10 @@ const LogIn = () => {
 					<Content>
 						<Form onSubmit={handleSubmit}>
 							<H1>Log in to view account</H1>
-							<ShouldNotLogin to='/'>
+							{/* <ShouldNotLogin to='/'>
 								<p>Didn't mean to land here?</p>
 								<p>Click to go home.</p>
-							</ShouldNotLogin>
+							</ShouldNotLogin> */}
 							<Label htmlFor='for'>Email</Label>
 							<Input
 								type='email'

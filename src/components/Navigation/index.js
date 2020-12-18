@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { FaBars } from 'react-icons/fa';
-import styled from 'styled-components';
-import { Link as LinkRouter } from 'react-router-dom';
-import { Link as LinkScroll } from 'react-scroll';
-import { IconContext } from 'react-icons/lib';
-import { animateScroll as Scroll } from 'react-scroll';
-import { HashLink } from 'react-router-hash-link';
+import React, { useState, useEffect } from "react";
+import { FaBars } from "react-icons/fa";
+import styled from "styled-components";
+import { Link as LinkRouter } from "react-router-dom";
+import { Link as LinkScroll } from "react-scroll";
+import { IconContext } from "react-icons/lib";
+import { animateScroll as Scroll } from "react-scroll";
+import { HashLink } from "react-router-hash-link";
 
 const NavWrapper = styled.nav`
 	align-items: center;
-	background: ${({ scrollValue }) => (scrollValue ? '#1F262E' : 'transparent')};
+	background: ${({ scrollValue }) => (scrollValue ? "#1F262E" : "transparent")};
 	display: flex;
 	font-size: 1rem;
 	height: 80px;
@@ -204,7 +204,7 @@ const Nav = ({ toggle }) => {
 	};
 
 	useEffect(() => {
-		window.addEventListener('scroll', changeScroll);
+		window.addEventListener("scroll", changeScroll);
 	}, []);
 
 	const scrollHome = () => {
@@ -212,7 +212,7 @@ const Nav = ({ toggle }) => {
 	};
 
 	return (
-		<IconContext.Provider value={{ color: '#d9d5b6' }}>
+		<IconContext.Provider value={{ color: "#d9d5b6" }}>
 			<NavWrapper scrollValue={scrollValue}>
 				<Container>
 					<LogoRouter to='/' onClick={scrollHome}>
@@ -221,8 +221,7 @@ const Nav = ({ toggle }) => {
 					<BurgerButton onClick={toggle}>
 						<FaBars />
 					</BurgerButton>
-					{console.log(window.location.href)}
-					{!window.location.href === 'http://localhost:3000/events' ? (
+					{!window.location.href === "http://localhost:3000/events" ? (
 						<>
 							<BurgerMenu>
 								<BurgerItem>
@@ -230,8 +229,7 @@ const Nav = ({ toggle }) => {
 										to='about'
 										exact='true'
 										smooth={true}
-										duration={500}
-										spy={true}>
+										duration={500}>
 										About
 									</BurgerLinkScroll>
 								</BurgerItem>
@@ -240,8 +238,7 @@ const Nav = ({ toggle }) => {
 										to='contact'
 										exact='true'
 										smooth={true}
-										duration={500}
-										spy={true}>
+										duration={500}>
 										Contact
 									</BurgerLinkScroll>
 								</BurgerItem>
@@ -250,8 +247,7 @@ const Nav = ({ toggle }) => {
 										to='team'
 										exact='true'
 										smooth={true}
-										duration={500}
-										spy={true}>
+										duration={500}>
 										Team
 									</BurgerLinkScroll>
 								</BurgerItem>
@@ -265,7 +261,7 @@ const Nav = ({ toggle }) => {
 								</BurgerItem>
 							</BurgerMenu>
 							<LogInButton>
-								<ReserveBtnS to='reserve' exact='true' smooth={true} spy={true}>
+								<ReserveBtnS to='reserve' exact='true' smooth={true}>
 									Reserve Now!
 								</ReserveBtnS>
 							</LogInButton>
@@ -274,17 +270,17 @@ const Nav = ({ toggle }) => {
 						<>
 							<BurgerMenu>
 								<BurgerItem>
-									<RouterHashLink smooth to='/#about' exact='true' spy={true}>
+									<RouterHashLink smooth to='/#about' exact='true'>
 										About
 									</RouterHashLink>
 								</BurgerItem>
 								<BurgerItem>
-									<RouterHashLink smooth spy={true} to='/#contact' exact='true'>
+									<RouterHashLink smooth to='/#contact' exact='true'>
 										Contact
 									</RouterHashLink>
 								</BurgerItem>
 								<BurgerItem>
-									<RouterHashLink smooth spy={true} to='/#team' exact='true'>
+									<RouterHashLink smooth to='/#team' exact='true'>
 										Team
 									</RouterHashLink>
 								</BurgerItem>
@@ -300,11 +296,7 @@ const Nav = ({ toggle }) => {
 								</BurgerItem>
 							</BurgerMenu>
 							<LogInButton>
-								<RouterHashButton
-									to='/#reserve'
-									exact='true'
-									smooth={true}
-									spy={true}>
+								<RouterHashButton to='/#reserve' exact='true' smooth={true}>
 									Reserve Now!
 								</RouterHashButton>
 							</LogInButton>

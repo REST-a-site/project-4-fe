@@ -146,9 +146,7 @@ const Hero = () => {
 	};
 
 	const handleClick = () => {
-		console.log("click working");
 		localStorage.clear();
-		console.log(localStorage);
 		history.push('/')
 	};
 

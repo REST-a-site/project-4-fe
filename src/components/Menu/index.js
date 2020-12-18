@@ -1,41 +1,47 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import MenuSection from '../MenuSection';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import MenuSection from "../MenuSection";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
-	background: linear-gradient(108deg, #d9d5b6 0%, #1f262e 100%);
+	background: linear-gradient(108deg, #1f262e 30%, #d9d5b6 100%);
 	bottom: 0;
 	left: 0;
 	min-height: 700px;
 	padding-top: 80px;
+	padding-bottom: 80px;
 	right: 0;
 	top: 0;
 	z-index: 0;
+
+	// change this
+	color: #9b9388;
+	text-align: center;
 `;
 const Title = styled.h1``;
 
 const LazyLoader = styled.h2``;
 
+const Button = styled(Link)``;
+
 const Menu = () => {
 	const [menu, setMenu] = useState();
+	const url = "https://restasitebackend.herokuapp.com/api/menu";
 	const sections = [
-		'Appetizers',
-		'Shellfish',
-		'Salads',
-		'Entrees',
-		'Prime Steaks',
-		'Large Format Steak',
-		'Sides',
+		"Appetizers",
+		"Shellfish",
+		"Salads",
+		"Entrees",
+		"Prime Steaks",
+		"Large Format Steak",
+		"Sides",
 	];
-
-	let url = 'https://restasitebackend.herokuapp.com/api/menu';
 
 	useEffect(() => {
 		axios(url)
 			.then((res) => {
 				setMenu(res.data);
-				console.log(res.data);
 			})
 			.catch(console.error);
 	}, []);
