@@ -5,6 +5,7 @@ import { Link as LinkRouter } from 'react-router-dom';
 import { Link as LinkScroll } from 'react-scroll';
 import { IconContext } from 'react-icons/lib';
 import { animateScroll as Scroll } from 'react-scroll';
+import { HashLink } from 'react-router-hash-link';
 
 const NavWrapper = styled.nav`
 	align-items: center;
@@ -94,7 +95,7 @@ const BurgerLinkScroll = styled(LinkScroll)`
 		border-bottom: 3px solid #ffffff;
 	}
 `;
-const ReserveBtn = styled(LinkScroll)`
+const ReserveBtnS = styled(LinkScroll)`
 	background: #9b9388;
 	border-radius: 0px;
 	border: 2.5px solid;
@@ -125,6 +126,40 @@ const BurgerLinkRouter = styled(LinkRouter)`
 
 	&.active {
 		border-bottom: 3px solid #9b9388;
+	}
+`;
+
+const RouterHashLink = styled(HashLink)`
+	align-items: center;
+	color: #d9d5b6;
+	cursor: pointer;
+	display: flex;
+	height: 100%;
+	padding: 0 1rem;
+	text-decoration: none;
+
+	&.active {
+		border-bottom: 3px solid #9b9388;
+	}
+`;
+
+const RouterHashButton = styled(HashLink)`
+	background: #9b9388;
+	border-radius: 0px;
+	border: 2.5px solid;
+	color: #d9d5b6;
+	cursor: pointer;
+	font-size: 16px;
+	outline: none;
+	padding: 10px 22px;
+	text-decoration: none;
+	transition: all 0.2s ease-in-out;
+	white-space: nowrap;
+
+	&:hover {
+		transition: all 0.2s ease-in-out;
+		background: #fff;
+		color: #d9d5b6;
 	}
 `;
 
@@ -186,53 +221,95 @@ const Nav = ({ toggle }) => {
 					<BurgerButton onClick={toggle}>
 						<FaBars />
 					</BurgerButton>
-					<BurgerMenu>
-						<BurgerItem>
-							<BurgerLinkScroll
-								to='about'
-								exact='true'
-								smooth={true}
-								duration={500}
-								spy={true}>
-								About
-							</BurgerLinkScroll>
-						</BurgerItem>
-						<BurgerItem>
-							<BurgerLinkScroll
-								to='contact'
-								exact='true'
-								smooth={true}
-								duration={500}
-								spy={true}>
-								Contact
-							</BurgerLinkScroll>
-						</BurgerItem>
-						<BurgerItem>
-							<BurgerLinkScroll
-								to='team'
-								exact='true'
-								smooth={true}
-								duration={500}
-								spy={true}>
-								Team
-							</BurgerLinkScroll>
-						</BurgerItem>
-						<BurgerItem>
-							<BurgerLinkRouter to='/menu'>Menu</BurgerLinkRouter>
-						</BurgerItem>
-						<BurgerItem>
-							<BurgerLinkRouter to='/events'>Private Events</BurgerLinkRouter>
-						</BurgerItem>
-					</BurgerMenu>
-					<LogInButton>
-						<ReserveBtn
-							to='reserve'
-							exact='true'
-							smooth={true}
-							spy={true}>
-							Reserve Now!
-						</ReserveBtn>
-					</LogInButton>
+					{console.log(window.location.href)}
+					{!window.location.href === 'http://localhost:3000/events' ? (
+						<>
+							<BurgerMenu>
+								<BurgerItem>
+									<BurgerLinkScroll
+										to='about'
+										exact='true'
+										smooth={true}
+										duration={500}
+										spy={true}>
+										About
+									</BurgerLinkScroll>
+								</BurgerItem>
+								<BurgerItem>
+									<BurgerLinkScroll
+										to='contact'
+										exact='true'
+										smooth={true}
+										duration={500}
+										spy={true}>
+										Contact
+									</BurgerLinkScroll>
+								</BurgerItem>
+								<BurgerItem>
+									<BurgerLinkScroll
+										to='team'
+										exact='true'
+										smooth={true}
+										duration={500}
+										spy={true}>
+										Team
+									</BurgerLinkScroll>
+								</BurgerItem>
+								<BurgerItem>
+									<BurgerLinkRouter to='/menu'>Menu</BurgerLinkRouter>
+								</BurgerItem>
+								<BurgerItem>
+									<BurgerLinkRouter to='/events'>
+										Private Events
+									</BurgerLinkRouter>
+								</BurgerItem>
+							</BurgerMenu>
+							<LogInButton>
+								<ReserveBtnS to='reserve' exact='true' smooth={true} spy={true}>
+									Reserve Now!
+								</ReserveBtnS>
+							</LogInButton>
+						</>
+					) : (
+						<>
+							<BurgerMenu>
+								<BurgerItem>
+									<RouterHashLink smooth to='/#about' exact='true' spy={true}>
+										About
+									</RouterHashLink>
+								</BurgerItem>
+								<BurgerItem>
+									<RouterHashLink smooth spy={true} to='/#contact' exact='true'>
+										Contact
+									</RouterHashLink>
+								</BurgerItem>
+								<BurgerItem>
+									<RouterHashLink smooth spy={true} to='/#team' exact='true'>
+										Team
+									</RouterHashLink>
+								</BurgerItem>
+								<BurgerItem>
+									<BurgerLinkRouter to='/menu' exact='true'>
+										Menu
+									</BurgerLinkRouter>
+								</BurgerItem>
+								<BurgerItem>
+									<BurgerLinkRouter to='/events'>
+										Private Events
+									</BurgerLinkRouter>
+								</BurgerItem>
+							</BurgerMenu>
+							<LogInButton>
+								<RouterHashButton
+									to='/#reserve'
+									exact='true'
+									smooth={true}
+									spy={true}>
+									Reserve Now!
+								</RouterHashButton>
+							</LogInButton>
+						</>
+					)}
 				</Container>
 			</NavWrapper>
 		</IconContext.Provider>
