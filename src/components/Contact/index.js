@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 
 const Container = styled.div`
-	background: ${({ altBg }) => (altBg ? '#9b9388' : '#1f262E')};
+	background: ${({ altBg }) => (altBg ? "#9b9388" : "#1f262E")};
 	color: #d9d5b6;
+
+	/* bottom: 0;
+	left: 0;
+	min-height: 700px;
+	overflow: hidden;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 0; */
 
 	@media screen and (max-width: 780px) {
 		padding: 100px 0;
@@ -20,7 +29,19 @@ const Wrapper = styled.div`
 	padding: 0 24px;
 	width: 100%;
 	z-index: 1;
+
+	/* display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+
+	@media screen and (max-width: 400px) {
+		height: 80%;
+	} */
 `;
+
+
+
 
 const Row = styled.div`
 	align-items: center;
@@ -108,19 +129,19 @@ export const InputTextArea = styled.textarea`
 `;
 
 const Contact = () => {
-	const [ contact, setContact ] =useState()
-	const [ name, setName ] =useState()
-	const [ email, setEmail ] =useState()
-	const [ inquiry, setInquiry ] =useState()
-	
+	const [contact, setContact] = useState();
+	const [name, setName] = useState();
+	const [email, setEmail] = useState();
+	const [inquiry, setInquiry] = useState();
+
 	return (
 		<Container altBg={true} id='contact'>
 			<Wrapper>
 				<Row imgPosition={true}>
 					<ColumnOne>
-					<Form>
-						<h1>Contact Us:</h1>
-					<Label htmlFor='name'>Name:</Label>
+						<Form>
+							<h1>Contact Us:</h1>
+							<Label htmlFor='name'>Name:</Label>
 							<InputTextArea
 								type='text'
 								rows='3'
@@ -173,7 +194,7 @@ const Contact = () => {
 					</ColumnOne>
 					<ColumnTwo>
 						<ImgContainer>
-							<Img src={require('../../images/food3.jpg').default} alt='food' />
+							<Img src={require("../../images/food3.jpg").default} alt='food' />
 						</ImgContainer>
 					</ColumnTwo>
 				</Row>
