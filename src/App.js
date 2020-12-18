@@ -5,6 +5,7 @@ import Home from "./pages";
 import LogIn from "./pages/login";
 import Events from "./pages/events";
 import Menu from "./pages/menu";
+import Edit from "./pages/edit";
 
 const App = () => {
 
@@ -23,6 +24,7 @@ const App = () => {
 				/>
 				<Route path='/events' component={Events} exact />
 				<Route path='/menu' component={Menu} exact />
+				<Route path='/edit' component={Edit} exact />
 			</Switch>
 		</Router>
 	);

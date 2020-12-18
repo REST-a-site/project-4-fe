@@ -14,7 +14,7 @@ const MenuSection = ({ menu, section }) => {
 
                 {(menu[0].menu_item.map((el, i) => {
                     if (menu[0].menu_item[i].menu_section === section) {
-                         return <MenuItem key={i} item={menu[0].menu_item[i]}/>         
+                         return <MenuItem key={i} index={i} item={menu[0].menu_item[i]}/>         
                     }}
                 ))}
         </Container>

@@ -10,7 +10,7 @@ const Container = styled.div``;
 const Reserve = () => {
 	const [windowSize, setWindowSize] = useState();
 
-	const breakpoint = 700;
+	const breakpoint = 820;
 
 	useEffect(() => {
 		setWindowSize(window.innerWidth);
