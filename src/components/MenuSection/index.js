@@ -1,24 +1,25 @@
-import React from 'react'
-import MenuItem from '../MenuItem'
-import styled from 'styled-components'
+import React from "react";
+import MenuItem from "../MenuItem";
+import styled from "styled-components";
 
-const Container = styled.div``
+const Container = styled.div``;
 
-const SectionName = styled.h1``
+const SectionName = styled.h1``;
 
 const MenuSection = ({ menu, section }) => {
-    return (
-        <Container>
+	return (
+		<Container>
+			<SectionName>{section}</SectionName>
 
-            <SectionName>{section}</SectionName>
+			{menu[0].menu_item_name.map((el, i) => {
+				if (menu[0].menu_item_name[i].menu_section === section) {
+					return (
+						<MenuItem key={i} index={i} item={menu[0].menu_item_name[i]} />
+					);
+				}
+			})}
+		</Container>
+	);
+};
 
-                {(menu[0].menu_item.map((el, i) => {
-                    if (menu[0].menu_item[i].menu_section === section) {
-                         return <MenuItem key={i} index={i} item={menu[0].menu_item[i]}/>         
-                    }}
-                ))}
-        </Container>
-    )
-}
-
-export default MenuSection
+export default MenuSection;
