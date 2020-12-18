@@ -132,7 +132,7 @@ const Edit = () => {
 	useEffect(() => {
 		axios(url)
 			.then((res) => {
-                setItems(res.data[0].menu_item)
+                setItems(res.data[0].menu_item_name)
 			})
 			.catch(console.error);
     }, []);
