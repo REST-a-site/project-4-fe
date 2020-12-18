@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -57,13 +57,115 @@ const Img = styled.img`
 	padding-right: 0;
 	width: 100%;
 `;
+
+export const Form = styled.form`
+	background: #181a1b;
+	border-radius: 4px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+	display: grid;
+	height: auto;
+	margin: 0 auto;
+	max-width: 400px;
+	padding: 80px 32px;
+	width: 100%;
+	z-index: 1;
+
+	@media screen and (max-width: 400px) {
+		padding: 32px 32px;
+	}
+`;
+
+export const Label = styled.label`
+	color: #d9d5b6;
+	font-size: 14px;
+	margin-bottom: 8px;
+`;
+
+export const InputSelect = styled.select`
+	border-radius: 4px;
+	border: none;
+	margin-bottom: 32px;
+	padding: 16px 16px;
+`;
+
+export const FormButton = styled.button`
+	color: #1f262e;
+	border-radius: 4px;
+	border: none;
+	background: #d9d5b6;
+	cursor: pointer;
+	font-size: 20px;
+	padding: 16px 0;
+	margin-top: 10px;
+`;
+
+export const InputTextArea = styled.textarea`
+	width: 100%;
+`;
+
 const Contact = () => {
+	const [ contact, setContact ] =useState()
+	const [ name, setName ] =useState()
+	const [ email, setEmail ] =useState()
+	const [ inquiry, setInquiry ] =useState()
+	
 	return (
 		<Container altBg={true} id='contact'>
 			<Wrapper>
 				<Row imgPosition={true}>
 					<ColumnOne>
-						<h1>Contact Me Form Here</h1>
+					<Form>
+						<h1>Contact Us:</h1>
+					<Label htmlFor='name'>Name:</Label>
+							<InputTextArea
+								type='text'
+								rows='3'
+								name='name'
+								id='name'
+								form='nameform'
+								onChange={(event) => setName(event.target.value)}
+								value={name}
+							/>
+							<Label htmlFor='email'>Email:</Label>
+							<InputTextArea
+								type='text'
+								rows='3'
+								name='email'
+								id='email'
+								form='emailform'
+								onChange={(event) => setEmail(event.target.value)}
+								value={email}
+							/>
+							<Label htmlFor='inquiryType'>Inquiry Type:</Label>
+							<InputSelect
+								name='inquiry'
+								id='inquiry'
+								form='inquiryform'
+								onChange={(event) => setInquiry(event.target.value)}
+								value={inquiry}>
+								<option value='Anniversary'>Anniversary</option>
+								<option value='Babyshower'>Babyshower</option>
+								<option value='Birthday'>Birthday</option>
+								<option value='Wedding'>Wedding</option>
+								<option value='Engagement'>Engagement</option>
+								<option value='CorporateEvent'>Corporate Event</option>
+								<option value='Graduation'>Graduation</option>
+								<option value='HolidayEvent'>Holiday Event</option>
+								<option value='RehersalDinner'>Rehersal Dinner</option>
+								<option value='Other'>Other</option>
+							</InputSelect>
+							<Label htmlFor='additionalDetails'>Additional Details:</Label>
+							<InputTextArea
+								type='text'
+								rows='8'
+								name='details'
+								id='details'
+								form='detailsform'
+								onChange={(event) => setContact(event.target.value)}
+								value={contact}
+							/>
+							<FormButton>Submit</FormButton>
+						</Form>
 					</ColumnOne>
 					<ColumnTwo>
 						<ImgContainer>

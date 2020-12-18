@@ -1,10 +1,9 @@
 export const About = {
-    // double: false,
     id: 'about',
-    altBg: false,
-    altText: true,
-    altTwoText: false,
-    altTextDescription: true,
+    bG: false,
+    introText: true,
+    h1Text: false,
+    textDescription: true,
     intro: "Find out more",
     h1: "About Us",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quidem nemo voluptatem magni iusto omnis? Fuga, inventore a praesentium, voluptates ipsum recusandae ea officia itaque aperiam asperiores numquam alias explicabo!",
@@ -13,16 +12,15 @@ export const About = {
     img: require('../../images/interior1.jpg').default,
     alt: "Restaurant interior",
     dark: true,
-    primary: true,
+    primary: false,
 }
 
 export const ChefOne = {
-    // double: true,
 	id: "team",
-	altBg: false,
-	altText: true,
-    altTwoText: false,
-	altTextDesc: true,
+	bG: false,
+	introText: true,
+    h1Text: false,
+	textDescription: true,
 	intro: "Executive Chef",
 	h1: "Guy Fieri",
 	description:
@@ -36,20 +34,19 @@ export const ChefOne = {
 };
 
 export const ChefTwo = {
-	// double: true,
-	id: "team2", // not used
-	altBg: true,
-	altText: false,
-    altTwoText: true,
-	altTextDesc: false,
+	id: "team2",
+	bG: true,
+	introText: false,
+    h1Text: true,
+	textDescription: false,
 	intro: "Deputy Chef",
 	h1: "Gordon Ramsey",
 	description:
 		"Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quidem nemo voluptatem magni iusto omnis? Fuga, inventore a praesentium, voluptates ipsum recusandae ea officia itaque aperiam asperiores numquam alias explicabo!",
 	buttonLabel: "Come Visit Us",
 	imgPosition: true,
-	img: require("../../images/food2.jpg").default,
+	img: require("../../images/interior8.jpg").default,
 	alt: "Restaurant interior",
 	dark: false,
-	primary: false,
+	primary: true,
 };
