@@ -12,11 +12,12 @@ import {
 	Input,
 	FormButton,
 	Text,
-} from "./styles";
+} from './styles';
 
 const LogIn = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+
 	const history = useHistory();
 
 	const handleSubmit = (event) => {
@@ -33,6 +34,7 @@ const LogIn = () => {
 				console.log("res from axios:", res.data.auth_token);
 				localStorage.setItem("token", res.data.auth_token);
 				history.push("/")
+
 			})
 			.catch(console.error);
 	};
