@@ -163,19 +163,19 @@ const Footer = () => {
 						</WebsiteRights>
 						<SocialIcons>
 							<SocialIconLink
-								href='/https://www.facebook.com/swiftandsons'
+								href='https://www.facebook.com/swiftandsons'
 								target='_blank'
 								aria-label='Facebook'>
 								<FaFacebook />
 							</SocialIconLink>
 							<SocialIconLink
-								href='/https://www.instagram.com/swiftandsons/'
+								href='https://www.instagram.com/swiftandsons/'
 								target='_blank'
 								aria-label='Instagram'>
 								<FaInstagram />
 							</SocialIconLink>
 							<SocialIconLink
-								href='/https://twitter.com/swiftandsonschi'
+								href='https://twitter.com/swiftandsonschi'
 								target='_blank'
 								aria-label='Twitter'>
 								<FaTwitter />
