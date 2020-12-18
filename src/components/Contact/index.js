@@ -56,6 +56,10 @@ const Img = styled.img`
 	margin: 0 0 10px 0;
 	padding-right: 0;
 	width: 100%;
+
+	@media screen and (max-width: 780px) {
+		display: none;
+	}
 `;
 
 export const Form = styled.form`

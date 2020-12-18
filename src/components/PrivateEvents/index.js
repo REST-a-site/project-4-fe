@@ -167,7 +167,7 @@ const PrivateEvents = () => {
 							Please tell us more about your goals, and one of our event
 							consultants will reach out!
 						</Description>
-						<Form>
+						<Form onClick={handleSubmit}>
 							<Label htmlFor='partySize'>Party Size</Label>
 							<InputSelect
 								name='size'
