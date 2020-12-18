@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Container = styled.div``
 
-const ItemName = styled.p`
+const ItemName = styled.p``
     
 const MenuItem = ({ item }) => {
 
