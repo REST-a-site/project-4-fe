@@ -5,7 +5,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { animateScroll as Scroll } from 'react-scroll';
 
 export const FooterContainer = styled.footer`
-	background-color: #101522;
+	background-color: #1f262e;
 `;
 
 export const FooterWrap = styled.div`
@@ -48,7 +48,6 @@ export const FooterLinkItems = styled.div`
 
     @media screen and (max-width: 420px){
         margin: 0;
-        padding: 10px;
         width: 100%;
         align-items: center;
         flex-direction: column;
@@ -65,6 +64,7 @@ export const FooterLink = styled(Link)`
 	text-decoration: none;
 	padding-left: 1rem;
 	padding-right: 1rem;
+	padding-bottom: 1rem;
 	max-width: 100%;
 	font-size: 14px;
 
@@ -180,7 +180,10 @@ const Footer = () => {
 								aria-label='Twitter'>
 								<FaTwitter />
 							</SocialIconLink>
-							<SocialIconLink href='/' target='_blank' aria-label='Youtube'>
+							<SocialIconLink
+								href='https://youtube.com'
+								target='_blank'
+								aria-label='Youtube'>
 								<FaYoutube />
 							</SocialIconLink>
 						</SocialIcons>

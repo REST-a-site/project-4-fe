@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-// import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+
 import {
 	Container,
 	Wrapper,
@@ -13,23 +13,18 @@ import {
 	Input,
 	FormButton,
 	Text,
-} from "./styles";
+} from './styles';
 
-const LogIn = () => {
+  const LogIn = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	// const [token, setToken] = useState('')
 	const history = useHistory();
-
-	// useEffect(() => {
-	// 	if (localStorage.token) return history.push("/");
-	// }), [];
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		axios({
 			method: "POST",
-			url: "https://warm-fjord-68987.herokuapp.com/token/login",
+			url: "https://restasitebackend.herokuapp.com/token/login",
 			data: {
 				username: email,
 				password,
@@ -38,8 +33,8 @@ const LogIn = () => {
 			.then((res) => {
 				console.log("res from axios:", res.data.auth_token);
 				localStorage.setItem("token", res.data.auth_token);
-				// setToken(localStorage.token)
 				history.push("/")
+
 			})
 			.catch(console.error);
 	};

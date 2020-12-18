@@ -1,13 +1,17 @@
 import React from 'react'
+import styled from 'styled-components'
 
+const Container = styled.div``
+
+const ItemName = styled.p`
+    
 const MenuItem = ({ item }) => {
 
     return (
-        <div>
-              <h1>{item.item_name}</h1>  
-              <p>{item.item_description}</p>
-              <p>{item.price}</p>
-        </div>
+        <Container>
+              <ItemName>{item.item_name}</ItemName>  
+        </Container>
+
     )
 }
 
