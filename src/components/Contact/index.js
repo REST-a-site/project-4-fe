@@ -120,6 +120,7 @@ export const FormButton = styled.button`
 
 export const InputTextArea = styled.textarea`
 	width: 100%;
+	resize: none;
 `;
 
 const Contact = () => {

@@ -46,10 +46,10 @@ const LogIn = () => {
 					<Content>
 						<Form onSubmit={handleSubmit}>
 							<H1>Log in to view account</H1>
-							<ShouldNotLogin to='/'>
+							{/* <ShouldNotLogin to='/'>
 								<p>Didn't mean to land here?</p>
 								<p>Click to go home.</p>
-							</ShouldNotLogin>
+							</ShouldNotLogin> */}
 							<Label htmlFor='for'>Email</Label>
 							<Input
 								type='email'

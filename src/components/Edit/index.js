@@ -9,7 +9,6 @@ const Container = styled.div`
 	left: 0;
 	min-height: 700px;
 	overflow: hidden;
-	position: fixed;
 	right: 0;
 	top: 0;
 	z-index: 0;
@@ -101,6 +100,7 @@ const InputTextArea = styled.textarea`
 	border: none;
 	margin-bottom: 32px;
 	padding: 16px 16px;
+    resize: none;
 `;
 
 const FormButton = styled.button`
