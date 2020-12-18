@@ -4,15 +4,13 @@ import styled from "styled-components";
 const Container = styled.div`
 	background: ${({ altBg }) => (altBg ? "#9b9388" : "#1f262E")};
 	color: #d9d5b6;
-
-	/* bottom: 0;
+	bottom: 0;
 	left: 0;
 	min-height: 700px;
 	overflow: hidden;
-	position: fixed;
 	right: 0;
 	top: 0;
-	z-index: 0; */
+	z-index: 0;
 
 	@media screen and (max-width: 780px) {
 		padding: 100px 0;
@@ -20,24 +18,20 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-	display: grid;
-	height: 860px;
-	justify-content: center;
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 1100px;
 	padding: 0 24px;
 	width: 100%;
 	z-index: 1;
-
-	/* display: flex;
+	display: flex;
 	flex-direction: column;
 	height: 100%;
 	justify-content: center;
 
 	@media screen and (max-width: 400px) {
 		height: 80%;
-	} */
+	}
 `;
 
 
