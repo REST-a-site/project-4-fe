@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const Container = styled.div`
-	background: ${({ altBg }) => (altBg ? "#9b9388" : "#1f262E")};
+	background: ${({ altBg }) => (altBg ? '#9b9388' : '#1f262E')};
 	color: #d9d5b6;
 	bottom: 0;
 	left: 0;
@@ -127,7 +127,6 @@ const Contact = () => {
 	const [contact, setContact] = useState();
 	const [name, setName] = useState();
 	const [email, setEmail] = useState();
-	const [inquiry, setInquiry] = useState();
 
 	return (
 		<Container altBg={true} id='contact'>
@@ -171,7 +170,7 @@ const Contact = () => {
 					</ColumnOne>
 					<ColumnTwo>
 						<ImgContainer>
-							<Img src={require("../../images/food3.jpg").default} alt='food' />
+							<Img src={require('../../images/food3.jpg').default} alt='food' />
 						</ImgContainer>
 					</ColumnTwo>
 				</Row>
