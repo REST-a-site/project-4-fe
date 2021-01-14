@@ -12,11 +12,9 @@ const MenuSection = ({ menu, section }) => {
 			<SectionName>{section}</SectionName>
 
 			{menu[0].menu_item_name.map((el, i) => {
-				if (menu[0].menu_item_name[i].menu_section === section) {
-					return (
-						<MenuItem key={i} index={i} item={menu[0].menu_item_name[i]} />
-					);
-				}
+				return menu[0].menu_item_name[i].menu_section === section ? (
+					<MenuItem key={i} index={i} item={menu[0].menu_item_name[i]} />
+				) : null;
 			})}
 		</Container>
 	);
