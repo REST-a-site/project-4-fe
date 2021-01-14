@@ -100,7 +100,7 @@ const InputTextArea = styled.textarea`
 	border: none;
 	margin-bottom: 32px;
 	padding: 16px 16px;
-    resize: none;
+	resize: none;
 `;
 
 const FormButton = styled.button`
@@ -115,16 +115,16 @@ const FormButton = styled.button`
 `;
 
 const Edit = () => {
-    const blankForm = {
-        section: "-select-",
+	const blankForm = {
+		section: "-select-",
 		name: "name",
 		description: "",
 		price: 0,
 		checked: false,
 	};
 	const [formState, setFormState] = useState(blankForm);
-    const [items, setItems] = useState([])
-    const [selection, setSelection] = useState('')
+	const [items, setItems] = useState([]);
+	// const [selection, setSelection] = useState('')
 	const history = useHistory();
 
 	const url = "https://restasitebackend.herokuapp.com/api/menu";
@@ -132,28 +132,28 @@ const Edit = () => {
 	useEffect(() => {
 		axios(url)
 			.then((res) => {
-                setItems(res.data[0].menu_item_name)
+				setItems(res.data[0].menu_item_name);
 			})
 			.catch(console.error);
-    }, []);
-    
-    let handleChange = (e) => {
-        e.preventDefault()
-        setSelection(e.target.value)
-    }
+	}, []);
+
+	let handleChange = (e) => {
+		e.preventDefault();
+		// setSelection(e.target.value)
+	};
 
 	let handleSubmit = (e) => {
-        e.preventDefault();
-        axios({
-            method: 'PATCH',
-            url: url,
-            headers: {
-                Authorization: `Token ${localStorage.getItem("token")}`
-            },
-            body: {...formState}
-        })
-            .then(()=>history.push('/menu'))
-            .catch(console.error)
+		e.preventDefault();
+		axios({
+			method: "PATCH",
+			url: url,
+			headers: {
+				Authorization: `Token ${localStorage.getItem("token")}`,
+			},
+			body: { ...formState },
+		})
+			.then(() => history.push("/menu"))
+			.catch(console.error);
 	};
 
 	let handleCancel = (e) => {
@@ -174,20 +174,18 @@ const Edit = () => {
 						<Form onSubmit={handleSubmit}>
 							<H1>Create/Edit/Delete Item</H1>
 							<Label htmlFor='item'>Item</Label>
-							<InputSelect
-								name='item'
-								onChange={handleChange}
-								value=''>
-                                    <option>-select-</option>
+							<InputSelect name='item' onChange={handleChange} value=''>
+								<option>-select-</option>
 								{items.map((e, i) => {
-									return <option key={i} value={`${e.item_name}`}>{e.item_name}</option>;
+									return (
+										<option key={i} value={`${e.item_name}`}>
+											{e.item_name}
+										</option>
+									);
 								})}
 							</InputSelect>
 							<Label htmlFor='section'>Section</Label>
-							<InputSelect
-								name='section'
-								onChange={handleChange}
-								value=''>
+							<InputSelect name='section' onChange={handleChange} value=''>
 								<option value='select'>-select-</option>
 								<option value='Appetizers'>Appetizers</option>
 								<option value='Shellfish'>Shellfish</option>

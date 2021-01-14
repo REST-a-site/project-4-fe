@@ -8,7 +8,7 @@ const Container = styled.div`
 	align-items: center;
 	background: #181a1b;
 	display: flex;
-	height: 800px;
+	height: 100vh;
 	justify-content: center;
 	padding: 0 28px;
 	position: relative;
@@ -147,7 +147,7 @@ const Hero = () => {
 
 	const handleClick = () => {
 		localStorage.clear();
-		history.push('/')
+		history.push("/");
 	};
 
 	return (

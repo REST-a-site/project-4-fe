@@ -11,6 +11,8 @@ const Container = styled.div`
 	right: 0;
 	top: 0;
 	z-index: 0;
+	padding-top: 5vh;
+	padding-bottom: 5vh;
 
 	@media screen and (max-width: 780px) {
 		padding: 100px 0;
@@ -33,9 +35,6 @@ const Wrapper = styled.div`
 		height: 80%;
 	}
 `;
-
-
-
 
 const Row = styled.div`
 	align-items: center;
@@ -71,8 +70,7 @@ const Img = styled.img`
 	margin: 0 0 10px 0;
 	padding-right: 0;
 	width: 100%;
-	padding-bottom: 20px;
-	padding-top: 50px;
+	height: 550px;
 
 	@media screen and (max-width: 780px) {
 		display: none;
@@ -87,7 +85,7 @@ export const Form = styled.form`
 	height: auto;
 	margin: 0 auto;
 	max-width: 400px;
-	padding: 80px 32px;
+	padding: 70px 32px;
 	width: 100%;
 	z-index: 1;
 
@@ -158,24 +156,6 @@ const Contact = () => {
 								onChange={(event) => setEmail(event.target.value)}
 								value={email}
 							/>
-							<Label htmlFor='inquiryType'>Inquiry Type:</Label>
-							<InputSelect
-								name='inquiry'
-								id='inquiry'
-								form='inquiryform'
-								onChange={(event) => setInquiry(event.target.value)}
-								value={inquiry}>
-								<option value='Anniversary'>Anniversary</option>
-								<option value='Babyshower'>Babyshower</option>
-								<option value='Birthday'>Birthday</option>
-								<option value='Wedding'>Wedding</option>
-								<option value='Engagement'>Engagement</option>
-								<option value='CorporateEvent'>Corporate Event</option>
-								<option value='Graduation'>Graduation</option>
-								<option value='HolidayEvent'>Holiday Event</option>
-								<option value='RehersalDinner'>Rehersal Dinner</option>
-								<option value='Other'>Other</option>
-							</InputSelect>
 							<Label htmlFor='additionalDetails'>Additional Details:</Label>
 							<InputTextArea
 								type='text'

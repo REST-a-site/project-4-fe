@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 
 const Container = styled.div`
-	background: ${({ altBg }) => (altBg ? '#9b9388' : '#1f262E')};
+	background: ${({ altBg }) => (altBg ? "#9b9388" : "#1f262E")};
 	color: #d9d5b6;
 	padding-top: 100px;
 
@@ -33,7 +33,6 @@ const Row = styled.div`
 	@media screen and (max-width: 780px) {
 		grid-template-areas: ${({ imgPosition }) =>
 			imgPosition ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
-	
 	}
 `;
 
@@ -60,7 +59,7 @@ const Intro = styled.p`
 `;
 
 const Description = styled.p`
-	color: ${({ altText }) => (altText ? '#3b3517' : '#d9d5b6')};
+	color: ${({ altText }) => (altText ? "#3b3517" : "#d9d5b6")};
 	font-size: 18px;
 	line-height: 24px;
 	margin-bottom: 35px;
@@ -68,7 +67,7 @@ const Description = styled.p`
 `;
 
 const H1 = styled.h1`
-	color: ${({ altTwoText }) => (altTwoText ? '#9b9388' : '#3b3517')};
+	color: ${({ altTwoText }) => (altTwoText ? "#9b9388" : "#3b3517")};
 	font-size: 48px;
 	font-weight: 600;
 	line-height: 1.1;
@@ -155,8 +154,8 @@ export const Text = styled.span`
 
 const PrivateEvents = () => {
 	const [partySize, setPartySize] = useState(0);
-	const [partyType, setPartyType] = useState('');
-	const [partyDetails, setPartyDetails] = useState('');
+	const [partyType, setPartyType] = useState("");
+	const [partyDetails, setPartyDetails] = useState("");
 
 	const handleSubmit = (event) => {
 		event.preventDefault();

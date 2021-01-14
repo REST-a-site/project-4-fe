@@ -4,3 +4,8 @@
 	margin: 0;
 	font-family: "Barlow", sans-serif;
 }
+
+body,
+html {
+	background-color: #1f262e;
+}
