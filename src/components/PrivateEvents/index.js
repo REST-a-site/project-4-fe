@@ -4,10 +4,15 @@ import styled from "styled-components";
 const Container = styled.div`
 	background: ${({ altBg }) => (altBg ? "#9b9388" : "#1f262E")};
 	color: #d9d5b6;
-	padding-top: 100px;
+	margin-top: 150px;
+	margin-bottom: 50px;
 
 	@media screen and (max-width: 780px) {
-		padding: 100px 0;
+		margin-top: 100px;
+	}
+
+	@media screen and (max-width: 400px) {
+		margin-bottom: -100px;
 	}
 `;
 

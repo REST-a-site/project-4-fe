@@ -127,7 +127,6 @@ const Contact = () => {
 	const [contact, setContact] = useState();
 	const [name, setName] = useState();
 	const [email, setEmail] = useState();
-	const [inquiry, setInquiry] = useState();
 
 	return (
 		<Container altBg={true} id='contact'>
