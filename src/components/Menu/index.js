@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MenuSection from "../MenuSection";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 const Container = styled.div`
 	background: linear-gradient(108deg, #1f262e 30%, #d9d5b6 100%);
@@ -22,8 +21,6 @@ const Container = styled.div`
 const Title = styled.h1``;
 
 const LazyLoader = styled.h2``;
-
-const Button = styled(Link)``;
 
 const Menu = () => {
 	const [menu, setMenu] = useState();

@@ -1,11 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
-import { animateScroll as Scroll } from 'react-scroll';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { animateScroll as Scroll } from "react-scroll";
 
 export const FooterContainer = styled.footer`
 	background-color: #1f262e;
+	margin-top: 2.5vh;
 `;
 
 export const FooterWrap = styled.div`
@@ -37,20 +38,19 @@ export const FooterLinksWrapper = styled.div`
 `;
 
 export const FooterLinkItems = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    text-align: left;
-    box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	text-align: left;
+	box-sizing: border-box;
 
-    @media screen and (max-width: 420px){
-        margin: 0;
-        width: 100%;
-        align-items: center;
-        flex-direction: column;
-    }
+	@media screen and (max-width: 420px) {
+		margin: 0;
+		width: 100%;
+		align-items: center;
+		flex-direction: column;
+	}
 `;
-
 
 export const FooterLink = styled(Link)`
 	color: #d9d6b6;
