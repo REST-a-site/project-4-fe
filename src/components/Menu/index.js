@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import MenuSection from "../MenuSection";
 import styled from "styled-components";
+import { Menu as MenuData } from "../Menu/Data";
 
 const Container = styled.div`
 	background: linear-gradient(108deg, #1f262e 30%, #d9d5b6 100%);
@@ -24,23 +25,19 @@ const LazyLoader = styled.h2``;
 
 const Menu = () => {
 	const [menu, setMenu] = useState();
-	const url = "https://restasitebackend.herokuapp.com/api/menu";
-	const sections = [
-		"Appetizers",
-		"Shellfish",
-		"Salads",
-		"Entrees",
-		"Prime Steaks",
-		"Large Format Steak",
-		"Sides",
-	];
+	// const url = "https://restasitebackend.herokuapp.com/api/menu";
 
 	useEffect(() => {
-		axios(url)
-			.then((res) => {
-				setMenu(res.data);
-			})
-			.catch(console.error);
+		// axios(url)
+		// 	.then((res) => {
+		// 		setMenu(res.data);
+		// 	})
+		// 	.catch(console.error);
+
+		// console.log(MenuData);
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		setMenu(MenuData);
 	}, []);
 
 	if (!menu) {
@@ -49,10 +46,10 @@ const Menu = () => {
 
 	return (
 		<Container>
-			<Title>Dinner</Title>
-			{sections.map((section, i) => {
-				return <MenuSection key={i} menu={menu} section={section} />;
-			})}
+			<Title>{menu.menu_name}</Title>
+			{menu.menu_section_name.map((section, i) => (
+				<MenuSection key={i} section={section} />
+			))}
 		</Container>
 	);
 };
