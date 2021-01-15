@@ -10,8 +10,6 @@ const ItemName = styled.p``;
 const ItemLink = styled(Link)``;
 
 const MenuItem = ({ item }) => {
-	console.log(item);
-
 	let handleClick = (e) => {};
 
 	return (

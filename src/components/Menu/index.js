@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import React from "react";
 import MenuSection from "../MenuSection";
 import styled from "styled-components";
-import { Menu as MenuData } from "../Menu/Data";
 
 const Container = styled.div`
 	background: linear-gradient(108deg, #1f262e 30%, #d9d5b6 100%);
@@ -21,29 +19,8 @@ const Container = styled.div`
 `;
 const Title = styled.h1``;
 
-const LazyLoader = styled.h2``;
-
-const Menu = () => {
-	const [menu, setMenu] = useState();
-	// const url = "https://restasitebackend.herokuapp.com/api/menu";
-
-	useEffect(() => {
-		// axios(url)
-		// 	.then((res) => {
-		// 		setMenu(res.data);
-		// 	})
-		// 	.catch(console.error);
-
-		// console.log(MenuData);
-
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-		setMenu(MenuData);
-	}, []);
-
-	if (!menu) {
-		return <LazyLoader>Loading...</LazyLoader>;
-	}
-
+const Menu = ({ menu }) => {
+	// console.log(menu);
 	return (
 		<Container>
 			<Title>{menu.menu_name}</Title>

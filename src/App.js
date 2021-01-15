@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages";
@@ -6,8 +6,19 @@ import LogIn from "./pages/login";
 import Events from "./pages/events";
 import Menu from "./pages/menu";
 import Edit from "./pages/edit";
+import axios from "axios";
 
 const App = () => {
+	const url = "https://be-921.herokuapp.com/api/menus";
+
+	useEffect(() => {
+		axios(url)
+			.then((res) => {
+				// console.log(res);
+			})
+			.catch(console.error);
+	}, []);
+
 	return (
 		<Router>
 			<Switch>
