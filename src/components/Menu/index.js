@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import MenuSection from "../MenuSection";
 import styled from "styled-components";
 
@@ -20,39 +19,14 @@ const Container = styled.div`
 `;
 const Title = styled.h1``;
 
-const LazyLoader = styled.h2``;
-
-const Menu = () => {
-	const [menu, setMenu] = useState();
-	const url = "https://restasitebackend.herokuapp.com/api/menu";
-	const sections = [
-		"Appetizers",
-		"Shellfish",
-		"Salads",
-		"Entrees",
-		"Prime Steaks",
-		"Large Format Steak",
-		"Sides",
-	];
-
-	useEffect(() => {
-		axios(url)
-			.then((res) => {
-				setMenu(res.data);
-			})
-			.catch(console.error);
-	}, []);
-
-	if (!menu) {
-		return <LazyLoader>Loading...</LazyLoader>;
-	}
-
+const Menu = ({ menu }) => {
+	// console.log(menu);
 	return (
 		<Container>
-			<Title>Dinner</Title>
-			{sections.map((section, i) => {
-				return <MenuSection key={i} menu={menu} section={section} />;
-			})}
+			<Title>{menu.menu_name}</Title>
+			{menu.menu_section_name.map((section, i) => (
+				<MenuSection key={i} section={section} />
+			))}
 		</Container>
 	);
 };

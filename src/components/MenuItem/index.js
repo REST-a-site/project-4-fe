@@ -9,19 +9,17 @@ const ItemName = styled.p``;
 
 const ItemLink = styled(Link)``;
 
-const MenuItem = ({ item, index }) => {
-	let handleClick = (e) => {
-		// let url = "https://restasitebackend.herokuapp.com/api/menu";
-	};
+const MenuItem = ({ item }) => {
+	let handleClick = (e) => {};
 
 	return (
 		<Container>
 			{localStorage.token ? (
 				<ItemLink to='/edit' item={item} onClick={handleClick}>
-					{item.item_name}
+					{item.menu_item_name}
 				</ItemLink>
 			) : (
-				<ItemName>{item.item_name}</ItemName>
+				<ItemName>{item.menu_item_name}</ItemName>
 			)}
 		</Container>
 	);

@@ -6,15 +6,15 @@ const Container = styled.div``;
 
 const SectionName = styled.h1``;
 
-const MenuSection = ({ menu, section }) => {
+const MenuSection = ({ section }) => {
+	// console.log(section);
+
 	return (
 		<Container>
-			<SectionName>{section}</SectionName>
+			<SectionName>{section.menu_section_name}</SectionName>
 
-			{menu[0].menu_item_name.map((el, i) => {
-				return menu[0].menu_item_name[i].menu_section === section ? (
-					<MenuItem key={i} index={i} item={menu[0].menu_item_name[i]} />
-				) : null;
+			{section.menu_items.map((el, i) => {
+				return <MenuItem key={i} item={section.menu_items[i]} />;
 			})}
 		</Container>
 	);
