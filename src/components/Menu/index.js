@@ -24,7 +24,7 @@ const LazyLoader = styled.h2``;
 
 const Menu = () => {
 	const [menu, setMenu] = useState();
-	const url = "https://restasitebackend.herokuapp.com/api/menu";
+	const url = "https://be-921.herokuapp.com/api/menus";
 	const sections = [
 		"Appetizers",
 		"Shellfish",
