@@ -24,7 +24,7 @@ const LazyLoader = styled.h2``;
 
 const Menu = () => {
 	const [menu, setMenu] = useState([]);
-	const url = 'https://be-921.herokuapp.com/api/menus';
+	const url = 'https://be-921.herokuapp.com/api/sections';
 	// const sections = [
 	// 	'Appetizers',
 	// 	'Shellfish',
@@ -49,11 +49,7 @@ const Menu = () => {
 
 	return (
 		<Container>
-			<Title>
-				{menu.map((el) => {
-					return el.menu_name;
-				})}
-			</Title>
+			<MenuSection section={menu}></MenuSection>
 		</Container>
 	);
 };
