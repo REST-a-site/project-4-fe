@@ -31,7 +31,7 @@ const MenuSection = ({ section }) => {
 							})}
 						</>
 					);
-				}
+				} else return 'hi';
 			})}
 			{/* {menu[0].menu_item_name.map((el, i) => {
 				return menu[0].menu_item_name[i].menu_section === section ? (

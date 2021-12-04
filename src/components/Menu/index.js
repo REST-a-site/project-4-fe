@@ -18,7 +18,6 @@ const Container = styled.div`
 	color: #9b9388;
 	text-align: center;
 `;
-const Title = styled.h1``;
 
 const LazyLoader = styled.h2``;
 
@@ -26,15 +25,6 @@ const Menu = () => {
 
 	const [menu, setMenu] = useState([]);
 	const url = 'https://be-921.herokuapp.com/api/sections';
-	// const sections = [
-	// 	'Appetizers',
-	// 	'Shellfish',
-	// 	'Salads',
-	// 	'Entrees',
-	// 	'Prime Steaks',
-	// 	'Large Format Steak',
-	// 	'Sides',
-	// ];
 
 
 	useEffect(() => {
