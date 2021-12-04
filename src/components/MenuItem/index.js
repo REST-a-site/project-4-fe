@@ -1,7 +1,7 @@
 // import axios from "axios";
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div``;
 
@@ -18,10 +18,10 @@ const MenuItem = ({ item, index }) => {
 		<Container>
 			{localStorage.token ? (
 				<ItemLink to='/edit' item={item} onClick={handleClick}>
-					{item.item_name}
+					{item}
 				</ItemLink>
 			) : (
-				<ItemName>{item.item_name}</ItemName>
+				<ItemName>{item}</ItemName>
 			)}
 		</Container>
 	);

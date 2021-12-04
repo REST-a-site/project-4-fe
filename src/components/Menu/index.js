@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import MenuSection from "../MenuSection";
-import styled from "styled-components";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import MenuSection from '../MenuSection';
+import styled from 'styled-components';
 
 const Container = styled.div`
 	background: linear-gradient(108deg, #1f262e 30%, #d9d5b6 100%);
@@ -23,17 +23,19 @@ const Title = styled.h1``;
 const LazyLoader = styled.h2``;
 
 const Menu = () => {
-	const [menu, setMenu] = useState();
-	const url = "https://be-921.herokuapp.com/api/menus";
-	const sections = [
-		"Appetizers",
-		"Shellfish",
-		"Salads",
-		"Entrees",
-		"Prime Steaks",
-		"Large Format Steak",
-		"Sides",
-	];
+
+	const [menu, setMenu] = useState([]);
+	const url = 'https://be-921.herokuapp.com/api/sections';
+	// const sections = [
+	// 	'Appetizers',
+	// 	'Shellfish',
+	// 	'Salads',
+	// 	'Entrees',
+	// 	'Prime Steaks',
+	// 	'Large Format Steak',
+	// 	'Sides',
+	// ];
+
 
 	useEffect(() => {
 		axios(url)
@@ -49,10 +51,7 @@ const Menu = () => {
 
 	return (
 		<Container>
-			<Title>Dinner</Title>
-			{sections.map((section, i) => {
-				return <MenuSection key={i} menu={menu} section={section} />;
-			})}
+			<MenuSection section={menu}></MenuSection>
 		</Container>
 	);
 };
