@@ -11,7 +11,7 @@ const ItemLink = styled(Link)``;
 
 const MenuItem = ({ item, index }) => {
 	let handleClick = (e) => {
-		// let url = "https://restasitebackend.herokuapp.com/api/menu";
+		//let url = "https://921-be.herokuapp.com/api/menus";
 	};
 
 	return (

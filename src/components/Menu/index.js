@@ -22,8 +22,10 @@ const Container = styled.div`
 const LazyLoader = styled.h2``;
 
 const Menu = () => {
+
 	const [menu, setMenu] = useState([]);
 	const url = 'https://be-921.herokuapp.com/api/sections';
+
 
 	useEffect(() => {
 		axios(url)
