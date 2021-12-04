@@ -23,6 +23,7 @@ const Title = styled.h1``;
 const LazyLoader = styled.h2``;
 
 const Menu = () => {
+
 	const [menu, setMenu] = useState([]);
 	const url = 'https://be-921.herokuapp.com/api/sections';
 	// const sections = [
@@ -34,6 +35,7 @@ const Menu = () => {
 	// 	'Large Format Steak',
 	// 	'Sides',
 	// ];
+
 
 	useEffect(() => {
 		axios(url)
