@@ -3,7 +3,7 @@ import { Button } from "../Styles";
 import styled from "styled-components";
 
 const Container = styled.div`
-	background: ${({ altBg }) => (altBg ? "#9b9388" : "#1f262E")};
+	background: ${({ bG }) => (bG ? "#9b9388" : "#1f262E")};
 	color: #d9d5b6;
 
 	@media screen and (max-width: 780px) {
@@ -55,7 +55,7 @@ const Content = styled.div`
 `;
 
 const Intro = styled.p`
-	color: #9b9388;
+	color: ${({ introText }) => (introText ? "#9b9388" : "#181a1b")};
 	font-size: 16px;
 	font-weight: 700;
 	letter-spacing: 1.4px;
@@ -65,7 +65,8 @@ const Intro = styled.p`
 `;
 
 const Description = styled.p`
-	color: ${({ altText }) => (altText ? "#3b3517" : "#d9d5b6")};
+	color: ${({ textDescription }) =>
+		textDescription ? "#d9d5b6" : "#1F262E"};
 	font-size: 18px;
 	line-height: 24px;
 	margin-bottom: 35px;
@@ -73,7 +74,7 @@ const Description = styled.p`
 `;
 
 const H1 = styled.h1`
-	color: ${({ altTwoText }) => (altTwoText ? "#9b9388" : "#3b3517")};
+	color: ${({ h1Text }) => (h1Text ? "#d9d5b6" : "#3b3517")};
 	font-size: 48px;
 	font-weight: 600;
 	line-height: 1.1;
@@ -102,10 +103,9 @@ const Img = styled.img`
 
 const Info = ({
 	id,
-	altBg,
-	altTwoText,
-    altTextDescription,
-    double,
+	bG,
+	h1Text,
+	textDescription,
 	h1,
 	intro,
 	description,
@@ -115,22 +115,23 @@ const Info = ({
 	alt,
 	dark,
 	primary,
-	altText,
+	introText,
 }) => {
 	return (
-		<Container altBg={altBg} id={id}>
+		<Container bG={bG} id={id}>
 			<Wrapper>
 				<Row imgPosition={imgPosition}>
 					<ColumnOne>
 						<Content>
-							<Intro altText={altText}>{intro}</Intro>
-							<H1 altTwoText={altTwoText}>{h1}</H1>
-							<Description altTextDescription={altTextDescription}>
+							<Intro introText={introText}>{intro}</Intro>
+							<H1 h1Text={h1Text}>{h1}</H1>
+							<Description textDescription={textDescription}>
 								{description}
 							</Description>
 							<ButtonContainer>
 								<Button
-									to='home'
+									to='reserve'
+									smooth={true}
 									offset={-80}
 									exact='true'
 									primary={primary ? 1 : 0}
@@ -147,26 +148,6 @@ const Info = ({
 					</ColumnTwo>
 				</Row>
 			</Wrapper>
-
-        {/* {(double) ? <Wrapper>
-				<Row imgPosition={!imgPosition}>
-					<ColumnOne>
-						<Content>
-							<Intro altText={altText}>{intro}</Intro>
-							<H1 altTwoText={altTwoText}>{h1}</H1>
-							<Description altTextDescription={altTextDescription}>
-								{description}
-							</Description>
-						</Content>
-					</ColumnOne>
-					<ColumnTwo>
-						<ImgContainer>
-							<Img src={img} alt={alt} />
-						</ImgContainer>
-					</ColumnTwo>
-				</Row>
-			</Wrapper> : null} */}
-
 		</Container>
 	);
 };

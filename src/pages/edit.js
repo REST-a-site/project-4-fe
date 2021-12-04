@@ -1,14 +1,14 @@
 import React from "react";
-import LogIn from "../components/LogIn";
 import ScrollToTop from "../components/utils";
+import Edit from "../components/Edit";
 
-const LogInPage = () => {
+const EditPage = () => {
 	return (
 		<>
 			<ScrollToTop />
-			<LogIn />
+			<Edit />
 		</>
 	);
 };
 
-export default LogInPage;
+export default EditPage;

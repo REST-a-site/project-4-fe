@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react';
+import Sidebar from '../components/Sidebar';
+import Navigation from '../components/Navigation';
+import PrivateEvents from '../components/PrivateEvents';
+import Footer from '../components/Footer';
 
 const Events = () => {
-    return (
-        <div>
-            Future home of Event component
-        </div>
-    )
-}
+	const [isOpen, setIsOpen] = useState(false);
 
-export default Events
+	const toggle = () => {
+		setIsOpen(!isOpen);
+	};
+	return (
+		<>
+			<Sidebar isOpen={isOpen} toggle={toggle} />
+			<Navigation toggle={toggle} />
+			<PrivateEvents />
+			<Footer />
+		</>
+	);
+};
+
+export default Events;

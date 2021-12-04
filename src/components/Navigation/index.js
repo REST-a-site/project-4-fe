@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { Link as LinkRouter } from "react-router-dom";
 import { Link as LinkScroll } from "react-scroll";
 import { IconContext } from "react-icons/lib";
+import { animateScroll as Scroll } from "react-scroll";
+import { HashLink } from "react-router-hash-link";
 
 const NavWrapper = styled.nav`
 	align-items: center;
@@ -32,20 +34,20 @@ const Container = styled.div`
 	z-index: 1;
 `;
 
-const Logo = styled(LinkRouter)`
-	align-items: center;
+const LogoRouter = styled(LinkRouter)`
 	color: #d9d5b6;
-	cursor: pointer;
-	display: flex;
-	font-size: 60px;
-	font-weight: bold;
 	justify-self: flex-start;
+	cursor: pointer;
+	font-size: 60px;
+	display: flex;
+	align-items: center;
 	margin-left: 24px;
+	font-weight: bold;
 	text-decoration: none;
 
 	@media screen and (max-width: 780px) {
-        margin-top: -10px;
-        font-size: 24px;
+		margin-top: -10px;
+		font-size: 24px;
 	}
 `;
 
@@ -80,7 +82,7 @@ const BurgerItem = styled.li`
 	height: 80px;
 `;
 
-const BurgerLink = styled(LinkScroll)`
+const BurgerLinkScroll = styled(LinkScroll)`
 	align-items: center;
 	color: #d9d5b6;
 	cursor: pointer;
@@ -90,34 +92,10 @@ const BurgerLink = styled(LinkScroll)`
 	text-decoration: none;
 
 	&.active {
-		border-bottom: 3px solid #9b9388;
+		border-bottom: 3px solid #ffffff;
 	}
 `;
-
-const BurgerRouter = styled(LinkRouter)`
-	align-items: center;
-	color: #d9d5b6;
-	cursor: pointer;
-	display: flex;
-	height: 100%;
-	padding: 0 1rem;
-	text-decoration: none;
-
-	&.active {
-		border-bottom: 3px solid #9b9388;
-	}
-`;
-
-const LogInButton = styled.nav`
-	align-items: center;
-	display: flex;
-
-	@media screen and (max-width: 780px) {
-		display: none;
-	}
-`;
-
-const LogInLink = styled(LinkRouter)`
+const ReserveBtnS = styled(LinkScroll)`
 	background: #9b9388;
 	border-radius: 0px;
 	border: 2.5px solid;
@@ -137,6 +115,83 @@ const LogInLink = styled(LinkRouter)`
 	}
 `;
 
+const BurgerLinkRouter = styled(LinkRouter)`
+	align-items: center;
+	color: #d9d5b6;
+	cursor: pointer;
+	display: flex;
+	height: 100%;
+	padding: 0 1rem;
+	text-decoration: none;
+
+	&.active {
+		border-bottom: 3px solid #9b9388;
+	}
+`;
+
+const RouterHashLink = styled(HashLink)`
+	align-items: center;
+	color: #d9d5b6;
+	cursor: pointer;
+	display: flex;
+	height: 100%;
+	padding: 0 1rem;
+	text-decoration: none;
+
+	&.active {
+		border-bottom: 3px solid #9b9388;
+	}
+`;
+
+const RouterHashButton = styled(HashLink)`
+	background: #9b9388;
+	border-radius: 0px;
+	border: 2.5px solid;
+	color: #d9d5b6;
+	cursor: pointer;
+	font-size: 16px;
+	outline: none;
+	padding: 10px 22px;
+	text-decoration: none;
+	transition: all 0.2s ease-in-out;
+	white-space: nowrap;
+
+	&:hover {
+		transition: all 0.2s ease-in-out;
+		background: #fff;
+		color: #d9d5b6;
+	}
+`;
+
+const LogInButton = styled.nav`
+	align-items: center;
+	display: flex;
+
+	@media screen and (max-width: 780px) {
+		display: none;
+	}
+`;
+
+// const LogInLinkRouter = styled(LinkRouter)`
+// 	background: #9b9388;
+// 	border-radius: 0px;
+// 	border: 2.5px solid;
+// 	color: #d9d5b6;
+// 	cursor: pointer;
+// 	font-size: 16px;
+// 	outline: none;
+// 	padding: 10px 22px;
+// 	text-decoration: none;
+// 	transition: all 0.2s ease-in-out;
+// 	white-space: nowrap;
+
+// 	&:hover {
+// 		transition: all 0.2s ease-in-out;
+// 		background: #fff;
+// 		color: #d9d5b6;
+// 	}
+// `;
+
 const Nav = ({ toggle }) => {
 	const [scrollValue, setScrollValue] = useState(false);
 
@@ -153,56 +208,100 @@ const Nav = ({ toggle }) => {
 	}, []);
 
 	const scrollHome = () => {
-        // window.scroll.scrollToTop()
-        console.log('need to fix this');
+		Scroll.scrollToTop();
 	};
 
 	return (
 		<IconContext.Provider value={{ color: "#d9d5b6" }}>
 			<NavWrapper scrollValue={scrollValue}>
 				<Container>
-					<Logo to='/' onClick={scrollHome}>
+					<LogoRouter to='/' onClick={scrollHome}>
 						921
-					</Logo>
+					</LogoRouter>
 					<BurgerButton onClick={toggle}>
 						<FaBars />
 					</BurgerButton>
-					<BurgerMenu>
-						<BurgerItem>
-							<BurgerRouter to='/'>Home</BurgerRouter>
-						</BurgerItem>
-						<BurgerItem>
-							<BurgerRouter to='/menu'>Menu</BurgerRouter>
-						</BurgerItem>
-						<BurgerItem>
-							<BurgerRouter to='/events'>Private Events</BurgerRouter>
-						</BurgerItem>
-						<BurgerItem>
-							<BurgerLink to='reservations' exact='true'>
-								Reservations
-							</BurgerLink>
-						</BurgerItem>
-						<BurgerItem>
-							<BurgerLink to='about' exact='true'>
-								About
-							</BurgerLink>
-						</BurgerItem>
-						<BurgerItem>
-							<BurgerLink to='contact' exact='true'>
-								Contact
-							</BurgerLink>
-						</BurgerItem>
-						<BurgerItem>
-							<BurgerLink to='team' exact='true'>
-								Team
-							</BurgerLink>
-						</BurgerItem>
-					</BurgerMenu>
-					<LogInButton>
-						<LogInLink to='/login' exact='true'>
-							LogIn
-						</LogInLink>
-					</LogInButton>
+					{!window.location.href === "http://localhost:3000/events" ? (
+						<>
+							<BurgerMenu>
+								<BurgerItem>
+									<BurgerLinkScroll
+										to='about'
+										exact='true'
+										smooth={true}
+										duration={500}>
+										About
+									</BurgerLinkScroll>
+								</BurgerItem>
+								<BurgerItem>
+									<BurgerLinkScroll
+										to='contact'
+										exact='true'
+										smooth={true}
+										duration={500}>
+										Contact
+									</BurgerLinkScroll>
+								</BurgerItem>
+								<BurgerItem>
+									<BurgerLinkScroll
+										to='team'
+										exact='true'
+										smooth={true}
+										duration={500}>
+										Team
+									</BurgerLinkScroll>
+								</BurgerItem>
+								<BurgerItem>
+									<BurgerLinkRouter to='/menu'>Menu</BurgerLinkRouter>
+								</BurgerItem>
+								<BurgerItem>
+									<BurgerLinkRouter to='/events'>
+										Private Events
+									</BurgerLinkRouter>
+								</BurgerItem>
+							</BurgerMenu>
+							<LogInButton>
+								<ReserveBtnS to='reserve' exact='true' smooth={true}>
+									Reserve Now!
+								</ReserveBtnS>
+							</LogInButton>
+						</>
+					) : (
+						<>
+							<BurgerMenu>
+								<BurgerItem>
+									<RouterHashLink smooth to='/#about' exact='true'>
+										About
+									</RouterHashLink>
+								</BurgerItem>
+								<BurgerItem>
+									<RouterHashLink smooth to='/#contact' exact='true'>
+										Contact
+									</RouterHashLink>
+								</BurgerItem>
+								<BurgerItem>
+									<RouterHashLink smooth to='/#team' exact='true'>
+										Team
+									</RouterHashLink>
+								</BurgerItem>
+								<BurgerItem>
+									<BurgerLinkRouter to='/menu' exact='true'>
+										Menu
+									</BurgerLinkRouter>
+								</BurgerItem>
+								<BurgerItem>
+									<BurgerLinkRouter to='/events'>
+										Private Events
+									</BurgerLinkRouter>
+								</BurgerItem>
+							</BurgerMenu>
+							<LogInButton>
+								<RouterHashButton to='/#reserve' exact='true' smooth={true}>
+									Reserve Now!
+								</RouterHashButton>
+							</LogInButton>
+						</>
+					)}
 				</Container>
 			</NavWrapper>
 		</IconContext.Provider>

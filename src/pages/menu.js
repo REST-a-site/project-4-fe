@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
@@ -42,8 +43,28 @@ const Menu = () => {
 					</>
 				);
 			})}
+=======
+import React, { useState } from "react";
+import Menu from "../components/Menu";
+import Sidebar from "../components/Sidebar";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer"
+
+const MenuPage = () => {
+	const [isOpen, setIsOpen] = useState(false);
+
+	const toggle = () => {
+		setIsOpen(!isOpen);
+	};
+	return (
+		<>
+			<Sidebar isOpen={isOpen} toggle={toggle} />
+			<Navigation toggle={toggle} />
+			<Menu />
+			<Footer />
+>>>>>>> main
 		</>
 	);
 };
 
-export default Menu;
+export default MenuPage;

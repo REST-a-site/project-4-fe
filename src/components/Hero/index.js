@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Video from "../../videos/video.mp4";
 import styled from "styled-components";
-import { Button } from "../Styles";
+import { Link as LinkScroll } from "react-scroll";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
 	align-items: center;
 	background: #181a1b;
 	display: flex;
-	height: 800px;
+	height: 100vh;
 	justify-content: center;
 	padding: 0 28px;
 	position: relative;
@@ -96,11 +97,57 @@ const Wrapper = styled.div`
 	margin-top: 32px;
 `;
 
+const ReserveBtn = styled(LinkScroll)`
+	background: #9b9388;
+	border-radius: 0px;
+	border: 2.5px solid;
+	color: #d9d5b6;
+	cursor: pointer;
+	font-size: 16px;
+	outline: none;
+	padding: 10px 22px;
+	text-decoration: none;
+	transition: all 0.2s ease-in-out;
+	white-space: nowrap;
+
+	&:hover {
+		transition: all 0.2s ease-in-out;
+		background: #fff;
+		color: #d9d5b6;
+	}
+`;
+
+const LogoutBtn = styled.button`
+	background: #9b9388;
+	border-radius: 0px;
+	border: 2.5px solid;
+	color: #d9d5b6;
+	cursor: pointer;
+	font-size: 16px;
+	outline: none;
+	padding: 10px 22px;
+	text-decoration: none;
+	transition: all 0.2s ease-in-out;
+	white-space: nowrap;
+
+	&:hover {
+		transition: all 0.2s ease-in-out;
+		background: #fff;
+		color: #d9d5b6;
+	}
+`;
+
 const Hero = () => {
 	const [hover, setHover] = useState(false);
+	const history = useHistory();
 
 	const onHover = () => {
 		setHover(!hover);
+	};
+
+	const handleClick = () => {
+		localStorage.clear();
+		history.push("/");
 	};
 
 	return (
@@ -110,17 +157,40 @@ const Hero = () => {
 			</Background>
 			<Content>
 				<H1>921steak</H1>
-				<P>best steak in the game</P>
+
+				{localStorage.token ? (
+					<P>Welcome back, Admin.</P>
+				) : (
+					<P>best steak in the game</P>
+				)}
+
 				<Wrapper>
-					<Button
-						to='reserve'
-						primary='true'
-						exact='true'
-						dark='true'
-						onMouseEnter={onHover}
-						onMouseLeave={onHover}>
-						Make Reservations
-					</Button>
+					{localStorage.token ? (
+						<LogoutBtn
+							to='reserve'
+							primary='true'
+							exact='true'
+							dark='true'
+							smooth={true}
+							duration={500}
+							onMouseEnter={onHover}
+							onMouseLeave={onHover}
+							onClick={handleClick}>
+							Log Out
+						</LogoutBtn>
+					) : (
+						<ReserveBtn
+							to='reserve'
+							primary='true'
+							exact='true'
+							dark='true'
+							smooth={true}
+							duration={500}
+							onMouseEnter={onHover}
+							onMouseLeave={onHover}>
+							Make A Reservation!
+						</ReserveBtn>
+					)}
 				</Wrapper>
 			</Content>
 		</Container>

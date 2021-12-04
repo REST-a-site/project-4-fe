@@ -1,9 +1,18 @@
-import React from 'react'
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const Container = styled.div`
-	background: ${({ altBg }) => (altBg ? "#9b9388" : "#1f262E")};
+	background: ${({ altBg }) => (altBg ? '#9b9388' : '#1f262E')};
 	color: #d9d5b6;
+	bottom: 0;
+	left: 0;
+	min-height: 700px;
+	overflow: hidden;
+	right: 0;
+	top: 0;
+	z-index: 0;
+	padding-top: 5vh;
+	padding-bottom: 5vh;
 
 	@media screen and (max-width: 780px) {
 		padding: 100px 0;
@@ -11,15 +20,20 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-	display: grid;
-	height: 860px;
-	justify-content: center;
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 1100px;
 	padding: 0 24px;
 	width: 100%;
 	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+
+	@media screen and (max-width: 400px) {
+		height: 80%;
+	}
 `;
 
 const Row = styled.div`
@@ -56,18 +70,107 @@ const Img = styled.img`
 	margin: 0 0 10px 0;
 	padding-right: 0;
 	width: 100%;
+	height: 550px;
+
+	@media screen and (max-width: 780px) {
+		display: none;
+	}
 `;
+
+export const Form = styled.form`
+	background: #181a1b;
+	border-radius: 4px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+	display: grid;
+	height: auto;
+	margin: 0 auto;
+	max-width: 400px;
+	padding: 70px 32px;
+	width: 100%;
+	z-index: 1;
+
+	@media screen and (max-width: 400px) {
+		padding: 32px 32px;
+	}
+`;
+
+export const Label = styled.label`
+	color: #d9d5b6;
+	font-size: 14px;
+	margin-bottom: 8px;
+`;
+
+export const InputSelect = styled.select`
+	border-radius: 4px;
+	border: none;
+	margin-bottom: 32px;
+	padding: 16px 16px;
+`;
+
+export const FormButton = styled.button`
+	color: #1f262e;
+	border-radius: 4px;
+	border: none;
+	background: #d9d5b6;
+	cursor: pointer;
+	font-size: 20px;
+	padding: 16px 0;
+	margin-top: 10px;
+`;
+
+export const InputTextArea = styled.textarea`
+	width: 100%;
+	resize: none;
+`;
+
 const Contact = () => {
+	const [contact, setContact] = useState();
+	const [name, setName] = useState();
+	const [email, setEmail] = useState();
+
 	return (
-		<Container altBg={true}>
+		<Container altBg={true} id='contact'>
 			<Wrapper>
 				<Row imgPosition={true}>
 					<ColumnOne>
-                    <h1>Contact Me Form Here</h1>
+						<Form>
+							<h1>Contact Us:</h1>
+							<Label htmlFor='name'>Name:</Label>
+							<InputTextArea
+								type='text'
+								rows='3'
+								name='name'
+								id='name'
+								form='nameform'
+								onChange={(event) => setName(event.target.value)}
+								value={name}
+							/>
+							<Label htmlFor='email'>Email:</Label>
+							<InputTextArea
+								type='text'
+								rows='3'
+								name='email'
+								id='email'
+								form='emailform'
+								onChange={(event) => setEmail(event.target.value)}
+								value={email}
+							/>
+							<Label htmlFor='additionalDetails'>Additional Details:</Label>
+							<InputTextArea
+								type='text'
+								rows='8'
+								name='details'
+								id='details'
+								form='detailsform'
+								onChange={(event) => setContact(event.target.value)}
+								value={contact}
+							/>
+							<FormButton>Submit</FormButton>
+						</Form>
 					</ColumnOne>
 					<ColumnTwo>
 						<ImgContainer>
-							<Img src={require("../../images/food3.jpg").default} alt='food' />
+							<Img src={require('../../images/food3.jpg').default} alt='food' />
 						</ImgContainer>
 					</ColumnTwo>
 				</Row>
@@ -76,4 +179,4 @@ const Contact = () => {
 	);
 };
 
-export default Contact
+export default Contact;
