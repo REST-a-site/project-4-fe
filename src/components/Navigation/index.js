@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { FaBars } from "react-icons/fa";
-import styled from "styled-components";
-import { Link as LinkRouter } from "react-router-dom";
-import { Link as LinkScroll } from "react-scroll";
-import { IconContext } from "react-icons/lib";
-import { animateScroll as Scroll } from "react-scroll";
-import { HashLink } from "react-router-hash-link";
+import React, { useState, useEffect } from 'react';
+import { FaBars } from 'react-icons/fa';
+import styled from 'styled-components';
+import { Link as LinkRouter } from 'react-router-dom';
+import { Link as LinkScroll } from 'react-scroll';
+import { IconContext } from 'react-icons/lib';
+import { animateScroll as Scroll } from 'react-scroll';
+import { HashLink } from 'react-router-hash-link';
 
 const NavWrapper = styled.nav`
 	align-items: center;
-	background: ${({ scrollValue }) => (scrollValue ? "#1F262E" : "transparent")};
+	background: ${({ scrollValue }) => (scrollValue ? '#1F262E' : 'transparent')};
 	display: flex;
 	font-size: 1rem;
 	height: 80px;
@@ -172,29 +172,14 @@ const LogInButton = styled.nav`
 	}
 `;
 
-// const LogInLinkRouter = styled(LinkRouter)`
-// 	background: #9b9388;
-// 	border-radius: 0px;
-// 	border: 2.5px solid;
-// 	color: #d9d5b6;
-// 	cursor: pointer;
-// 	font-size: 16px;
-// 	outline: none;
-// 	padding: 10px 22px;
-// 	text-decoration: none;
-// 	transition: all 0.2s ease-in-out;
-// 	white-space: nowrap;
-
-// 	&:hover {
-// 		transition: all 0.2s ease-in-out;
-// 		background: #fff;
-// 		color: #d9d5b6;
-// 	}
-// `;
-
 const Nav = ({ toggle }) => {
 	const [scrollValue, setScrollValue] = useState(false);
-
+	const scrollWithOffset = (el) => {
+		const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+		const yOffset = -80;
+		window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' });
+	};
+	// offset scroll function from https://github.com/rafgraph/react-router-hash-link/issues/25#issuecomment-536688104
 	const changeScroll = () => {
 		if (window.scrollY >= 80) {
 			setScrollValue(true);
@@ -204,7 +189,7 @@ const Nav = ({ toggle }) => {
 	};
 
 	useEffect(() => {
-		window.addEventListener("scroll", changeScroll);
+		window.addEventListener('scroll', changeScroll);
 	}, []);
 
 	const scrollHome = () => {
@@ -212,7 +197,7 @@ const Nav = ({ toggle }) => {
 	};
 
 	return (
-		<IconContext.Provider value={{ color: "#d9d5b6" }}>
+		<IconContext.Provider value={{ color: '#d9d5b6' }}>
 			<NavWrapper scrollValue={scrollValue}>
 				<Container>
 					<LogoRouter to='/' onClick={scrollHome}>
@@ -221,33 +206,30 @@ const Nav = ({ toggle }) => {
 					<BurgerButton onClick={toggle}>
 						<FaBars />
 					</BurgerButton>
-					{!window.location.href === "http://localhost:3000/events" ? (
+					{!window.location.href === 'http://localhost:3000/events' ? (
 						<>
 							<BurgerMenu>
 								<BurgerItem>
 									<BurgerLinkScroll
+										smooth
 										to='about'
-										exact='true'
-										smooth={true}
-										duration={500}>
+										scroll={(el) => scrollWithOffset(el)}>
 										About
 									</BurgerLinkScroll>
 								</BurgerItem>
 								<BurgerItem>
 									<BurgerLinkScroll
+										smooth
 										to='contact'
-										exact='true'
-										smooth={true}
-										duration={500}>
+										scroll={(el) => scrollWithOffset(el)}>
 										Contact
 									</BurgerLinkScroll>
 								</BurgerItem>
 								<BurgerItem>
 									<BurgerLinkScroll
+										smooth
 										to='team'
-										exact='true'
-										smooth={true}
-										duration={500}>
+										scroll={(el) => scrollWithOffset(el)}>
 										Team
 									</BurgerLinkScroll>
 								</BurgerItem>
@@ -261,7 +243,10 @@ const Nav = ({ toggle }) => {
 								</BurgerItem>
 							</BurgerMenu>
 							<LogInButton>
-								<ReserveBtnS to='reserve' exact='true' smooth={true}>
+								<ReserveBtnS
+									smooth
+									to='team'
+									scroll={(el) => scrollWithOffset(el)}>
 									Reserve Now!
 								</ReserveBtnS>
 							</LogInButton>
@@ -270,22 +255,33 @@ const Nav = ({ toggle }) => {
 						<>
 							<BurgerMenu>
 								<BurgerItem>
-									<RouterHashLink smooth to='/#about' exact='true'>
+									<RouterHashLink
+										smooth
+										to='/#about'
+										scroll={(el) => scrollWithOffset(el)}>
 										About
 									</RouterHashLink>
 								</BurgerItem>
 								<BurgerItem>
-									<RouterHashLink smooth to='/#contact' exact='true'>
+									<RouterHashLink
+										smooth
+										to='/#contact'
+										scroll={(el) => scrollWithOffset(el)}>
 										Contact
 									</RouterHashLink>
 								</BurgerItem>
 								<BurgerItem>
-									<RouterHashLink smooth to='/#team' exact='true'>
+									<RouterHashLink
+										smooth
+										to='/#team'
+										scroll={(el) => scrollWithOffset(el)}>
 										Team
 									</RouterHashLink>
 								</BurgerItem>
 								<BurgerItem>
-									<BurgerLinkRouter to='/menu' exact='true'>
+									<BurgerLinkRouter
+										to='/menu'
+										scroll={(el) => scrollWithOffset(el)}>
 										Menu
 									</BurgerLinkRouter>
 								</BurgerItem>
@@ -296,7 +292,10 @@ const Nav = ({ toggle }) => {
 								</BurgerItem>
 							</BurgerMenu>
 							<LogInButton>
-								<RouterHashButton to='/#reserve' exact='true' smooth={true}>
+								<RouterHashButton
+									smooth
+									to='/#reserve'
+									scroll={(el) => scrollWithOffset(el)}>
 									Reserve Now!
 								</RouterHashButton>
 							</LogInButton>
